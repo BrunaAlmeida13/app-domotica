@@ -1,4 +1,4 @@
-package br.edu.infnet.model.domain;
+package br.edu.infnet.appdomotica.model.domain;
 
 import java.util.ArrayList;
 import java.util.List;

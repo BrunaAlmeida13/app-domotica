@@ -1,4 +1,4 @@
-package br.edu.infnet.model.domain;
+package br.edu.infnet.appdomotica.model.domain;
 
 public class Luz extends Aparelho {
 	public String cor;
@@ -8,7 +8,7 @@ public class Luz extends Aparelho {
 	
 	@Override
 	public String toString() {
-		return "Luz [Cor: " + this.cor + "; Intensidade: " + this.intensidade + "; Volume do som: " 
+		return "Luz [" + super.toString() + "Cor: " + this.cor + "; Intensidade: " + this.intensidade + "; Volume do som: " 
 				+ this.volumeSom + "; Power: " + this.power + "] ";
 	}
 }

@@ -113,7 +113,7 @@
 			</tbody>
 		</table>
 		<br>
-		<h3>Classe: ArCondicionado</h3>
+		<h3>Classe: ArCondicionado estende Aparelho</h3>
 		<table class="table table-striped table-dark">
 			<thead class="thead-dark">
 				<tr class="table-secondary">
@@ -141,7 +141,7 @@
 			</tbody>
 		</table>
 		<br>
-		<h3>Classe: Luz</h3>
+		<h3>Classe: Luz estende Aparelho</h3>
 		<table class="table table-striped table-dark">
 			<thead class="thead-dark">
 				<tr class="table-secondary">
@@ -169,7 +169,7 @@
 			</tbody>
 		</table>
 		<br>
-		<h3>Classe: Fechadura</h3>
+		<h3>Classe: Fechadura estende Aparelho</h3>
 		<table class="table table-striped table-dark">
 			<thead class="thead-dark">
 				<tr class="table-secondary">

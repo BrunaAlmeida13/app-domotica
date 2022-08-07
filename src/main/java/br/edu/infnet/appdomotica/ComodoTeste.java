@@ -4,10 +4,10 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.model.domain.ArCondicionado;
-import br.edu.infnet.model.domain.Comodo;
-import br.edu.infnet.model.domain.Fechadura;
-import br.edu.infnet.model.domain.Luz;
+import br.edu.infnet.appdomotica.model.domain.ArCondicionado;
+import br.edu.infnet.appdomotica.model.domain.Comodo;
+import br.edu.infnet.appdomotica.model.domain.Fechadura;
+import br.edu.infnet.appdomotica.model.domain.Luz;
 
 @Component
 public class ComodoTeste implements ApplicationRunner {
@@ -20,6 +20,7 @@ public class ComodoTeste implements ApplicationRunner {
 		Fechadura fechadura = new Fechadura();
 		ArCondicionado ac = new ArCondicionado();
 		
+		//Exemplo: acrescentar o aparelho luz no cômodo
 		Luz luz1 = new Luz();
 		luz1.cor = "azul";
 		luz1.intensidade = 2;

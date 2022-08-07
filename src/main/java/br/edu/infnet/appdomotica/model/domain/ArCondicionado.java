@@ -1,4 +1,4 @@
-package br.edu.infnet.model.domain;
+package br.edu.infnet.appdomotica.model.domain;
 
 public class ArCondicionado extends Aparelho {
 	public double temperatura;
@@ -7,7 +7,7 @@ public class ArCondicionado extends Aparelho {
 	
 	@Override
 	public String toString() {
-		return "A.C.[Temperatura: " + this.temperatura + "; Ventilacao: "
+		return "A.C.[" + super.toString() + "Temperatura: " + this.temperatura + "; Ventilacao: "
 				+ this.ventilacao + "; Power: " + this.power + "] ";
 	}
 	
