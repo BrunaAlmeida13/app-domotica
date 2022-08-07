@@ -22,30 +22,30 @@ public class ComodoTeste implements ApplicationRunner {
 		
 		//Exemplo: acrescentar o aparelho luz no cômodo
 		Luz luz1 = new Luz();
-		luz1.cor = "azul";
-		luz1.intensidade = 2;
-		luz1.volumeSom = 50;
-		luz1.power = true;
+		luz1.setCor("azul");
+		luz1.setIntensidade(2);
+		luz1.setVolumeSom(50);
+		luz1.setPower(true);
 		Comodo comodo1 = new Comodo();
-		comodo1.listaAparelhos.add(luz1);
-		comodo1.listaAparelhos.add(ac);
-		comodo1.tipo = "Quarto";
-		comodo1.nome = "Quarto da Nina";
+		comodo1.getListaAparelhos().add(luz1);
+		comodo1.getListaAparelhos().add(ac);
+		comodo1.setTipo("Quarto");
+		comodo1.setNome("Quarto da Nina");
 		System.out.println(comodo1);
 		
 		Comodo comodo2 = new Comodo();
-		comodo2.listaAparelhos.add(luz);
-		comodo2.listaAparelhos.add(ac);
-		comodo2.tipo = "Quarto";
-		comodo2.nome = "Quarto Suíte";
+		comodo2.getListaAparelhos().add(luz);
+		comodo2.getListaAparelhos().add(ac);
+		comodo2.setTipo("Quarto");
+		comodo2.setNome("Quarto Suíte");
 		System.out.println(comodo2);
 		
 		Comodo comodo3 = new Comodo();
-		comodo3.listaAparelhos.add(luz);
-		comodo3.listaAparelhos.add(ac);
-		comodo3.listaAparelhos.add(fechadura);
-		comodo3.tipo = "Cozinha";
-		comodo3.nome = "Quarto da Nina";
+		comodo3.getListaAparelhos().add(luz);
+		comodo3.getListaAparelhos().add(ac);
+		comodo3.getListaAparelhos().add(fechadura);
+		comodo3.setTipo("Cozinha");
+		comodo3.setNome("Quarto da Nina");
 		System.out.println(comodo3);
 	}
 }

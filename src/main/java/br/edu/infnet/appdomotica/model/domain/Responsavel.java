@@ -5,7 +5,7 @@ public class Responsavel {
 	public String senha;
 	public String cpf;
 	public String telefone;
-	
+
 	public Responsavel(String login, String senha, String cpf, String telefone) {
 		this.login = login;
 		this.senha = senha;
@@ -13,8 +13,41 @@ public class Responsavel {
 		this.telefone = telefone;
 	}
 
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
 	@Override
 	public String toString() {
-		return "Login: " + this.login + "; Senha: " + this.senha + "; CPF: " + this.cpf + "; Telefone: " + this.telefone;
+		return "Login: " + this.login + "; Senha: " + this.senha + "; CPF: " + this.cpf + "; Telefone: "
+				+ this.telefone;
 	}
 }

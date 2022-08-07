@@ -14,33 +14,33 @@ public class FechaduraTeste implements ApplicationRunner {
 		System.out.println("#fechadura");
 		
 		Fechadura fechadura1 = new Fechadura();
-		fechadura1.nome = "Fechadura sala";
-		fechadura1.status = "Ligada";
-		fechadura1.timerInicio = null;
-		fechadura1.timerFim = null;
-		fechadura1.senha = "8745";
-		fechadura1.trancada = true;
-		fechadura1.alarme = true;
+		fechadura1.setNome("Fechadura sala");
+		fechadura1.setStatus("Ligada");
+		fechadura1.setTimerInicio(null);
+		fechadura1.setTimerFim(null);
+		fechadura1.setSenha("8745");
+		fechadura1.setTrancada(true);
+		fechadura1.setAlarme(true);
 		System.out.println(fechadura1);		
 		
 		Fechadura fechadura2 = new Fechadura();
-		fechadura2.nome = "Fechadura cozinha";
-		fechadura2.status = "Destrancada";
-		fechadura2.timerInicio = null;
-		fechadura2.timerFim = null;
-		fechadura2.senha = "6489";
-		fechadura2.trancada = false;
-		fechadura2.alarme = false;
+		fechadura2.setNome("Fechadura cozinha");
+		fechadura2.setStatus("Destrancada");
+		fechadura2.setTimerInicio(null);
+		fechadura2.setTimerFim(null);
+		fechadura2.setSenha("6489");
+		fechadura2.setTrancada(false);
+		fechadura2.setAlarme(false);
 		System.out.println(fechadura1);	
 		
 		Fechadura fechadura3 = new Fechadura();
-		fechadura3.nome = "Fechadura portão garagem";
-		fechadura3.status = "Trancada";
-		fechadura3.timerInicio = null;
-		fechadura3.timerFim = null;
-		fechadura3.senha = "4215";
-		fechadura3.trancada = true;
-		fechadura3.alarme = false;
+		fechadura3.setNome("Fechadura portão garagem");
+		fechadura3.setStatus("Trancada");
+		fechadura3.setTimerInicio(null);
+		fechadura3.setTimerFim(null);
+		fechadura3.setSenha("4215");
+		fechadura3.setTrancada(true);
+		fechadura3.setAlarme(false);
 		System.out.println(fechadura3);
 	}
 }

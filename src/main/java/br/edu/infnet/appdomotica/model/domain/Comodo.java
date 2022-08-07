@@ -4,17 +4,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Comodo {
-	public String tipo;
-	public String nome;
-	
-	Luz luz = new Luz();
-	ArCondicionado ac = new ArCondicionado();
-	
-	public List<Aparelho> listaAparelhos = new ArrayList<Aparelho>();
-	
+	private String tipo;
+	private String nome;
+	private List<Aparelho> listaAparelhos = new ArrayList<Aparelho>();
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public List<Aparelho> getListaAparelhos() {
+		return listaAparelhos;
+	}
+
 	@Override
-	public String toString() {	
-		return "Tipo: " + this.tipo + "; Nome: " + this.nome 
-				+ "; \nLista de aparelhos no cômodo: " + listaAparelhos.toString();
+	public String toString() {
+		return "Tipo: " + this.tipo + "; Nome: " + this.nome + "; \nLista de aparelhos no cômodo: "
+				+ listaAparelhos.toString();
 	}
 }
