@@ -1,5 +1,10 @@
 package br.edu.infnet.model.domain;
 
-public class Aparelho {
+import java.time.LocalDateTime;
 
+public class Aparelho {
+	public String nome;
+	public String status;
+	public LocalDateTime timerInicio;
+	public LocalDateTime timerFim;
 }
