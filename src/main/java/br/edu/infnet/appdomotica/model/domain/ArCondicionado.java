@@ -5,6 +5,12 @@ public class ArCondicionado extends Aparelho {
 	public boolean ventilacao;
 	public boolean power;
 
+	@Override
+	public void impressao() {
+		System.out.println("#ArCondicionado");
+		System.out.println(this);
+	}
+	
 	public double getTemperatura() {
 		return temperatura;
 	}
@@ -32,6 +38,6 @@ public class ArCondicionado extends Aparelho {
 	@Override
 	public String toString() {
 		return "A.C.[" + super.toString() + "Temperatura: " + this.temperatura + "; Ventilacao: "
-				+ this.ventilacao + "; Power: " + this.power + "] ";
+				+ this.ventilacao + "; Power: " + this.power + "]\n";
 	}
 }

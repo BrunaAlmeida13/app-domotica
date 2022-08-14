@@ -5,13 +5,13 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appdomotica.model.domain.Luz;
+import br.edu.infnet.appdomotica.model.test.AppAparelho;
 
 @Component
 public class LuzTeste implements ApplicationRunner {
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		System.out.println("#Luz");
 		
 		Luz luz1 = new Luz();
 		luz1.setNome("Luz quarto Nina");
@@ -22,7 +22,7 @@ public class LuzTeste implements ApplicationRunner {
 		luz1.setIntensidade(2);
 		luz1.setVolumeSom(50);
 		luz1.setPower(true);
-		System.out.println(luz1);
+		new AppAparelho("Configuração da 'Luz quarto Nina'").relatorio(luz1); 
 		
 		Luz luz2 = new Luz();
 		luz2.setNome("Luz quarto suíte");
@@ -33,7 +33,7 @@ public class LuzTeste implements ApplicationRunner {
 		luz2.setIntensidade(3);
 		luz2.setVolumeSom(20);
 		luz2.setPower(true);
-		System.out.println(luz2);
+		new AppAparelho("Configuração da 'Luz quarto suíte'").relatorio(luz2); 
 		
 		Luz luz3 = new Luz();
 		luz3.setNome("Luz Cozinha");
@@ -44,6 +44,6 @@ public class LuzTeste implements ApplicationRunner {
 		luz3.setIntensidade(0);
 		luz3.setVolumeSom(0);
 		luz3.setPower(false);
-		System.out.println(luz3);
+		new AppAparelho("Configuração da 'Luz Cozinha'").relatorio(luz3);
 	}
 }

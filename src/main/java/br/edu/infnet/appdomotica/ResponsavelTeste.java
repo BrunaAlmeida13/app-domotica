@@ -11,7 +11,6 @@ public class ResponsavelTeste implements ApplicationRunner{
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		System.out.println("#Responsavel");
 		
 		Responsavel resp1 = new Responsavel("responsavel1@email.com", "usu1", "658487891269", "61456987263");
 		System.out.println(resp1);

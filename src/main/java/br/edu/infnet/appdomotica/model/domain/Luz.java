@@ -6,6 +6,13 @@ public class Luz extends Aparelho {
 	public int volumeSom;
 	public boolean power;
 
+
+	@Override
+	public void impressao() {
+		System.out.println("#Luz");
+		System.out.println(this);
+	}
+	
 	public String getCor() {
 		return cor;
 	}
@@ -41,6 +48,7 @@ public class Luz extends Aparelho {
 	@Override
 	public String toString() {
 		return "Luz [" + super.toString() + "Cor: " + this.cor + "; Intensidade: " + this.intensidade
-				+ "; Volume do som: " + this.volumeSom + "; Power: " + this.power + "] ";
+				+ "; Volume do som: " + this.volumeSom + "; Power: " + this.power + "]\n";
 	}
+
 }

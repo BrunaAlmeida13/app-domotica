@@ -8,6 +8,11 @@ public class Comodo {
 	private String nome;
 	private List<Aparelho> listaAparelhos = new ArrayList<Aparelho>();
 
+	public void impressao() {
+		System.out.println("#Fechadura");
+		System.out.println(this);
+	}
+	
 	public String getTipo() {
 		return tipo;
 	}

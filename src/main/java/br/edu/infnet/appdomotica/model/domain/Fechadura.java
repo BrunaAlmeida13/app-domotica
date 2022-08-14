@@ -5,6 +5,12 @@ public class Fechadura extends Aparelho {
 	public boolean trancada;
 	public boolean alarme;
 
+	@Override
+	public void impressao() {
+		System.out.println("#Fechadura");
+		System.out.println(this);
+	}
+	
 	public String getSenha() {
 		return senha;
 	}
@@ -32,6 +38,6 @@ public class Fechadura extends Aparelho {
 	@Override
 	public String toString() {
 		return "Fechadura [" + super.toString() + "Senha: " + this.senha + "; Trancada: " + this.trancada + "; Alarme: "
-				+ this.alarme + "] ";
+				+ this.alarme + "]\n";
 	}
 }

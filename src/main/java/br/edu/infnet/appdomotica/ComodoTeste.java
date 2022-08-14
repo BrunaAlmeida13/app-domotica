@@ -14,7 +14,6 @@ public class ComodoTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		System.out.println("#Comodo");
 		
 		Luz luz = new Luz();
 		Fechadura fechadura = new Fechadura();

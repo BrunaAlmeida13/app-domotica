@@ -12,6 +12,11 @@ public class Responsavel {
 		this.cpf = cpf;
 		this.telefone = telefone;
 	}
+	
+	public void impressao() {
+		System.out.println("#Responsavel");
+		System.out.println(this);
+	}
 
 	public String getLogin() {
 		return login;
