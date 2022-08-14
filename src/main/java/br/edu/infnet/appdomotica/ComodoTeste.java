@@ -44,7 +44,7 @@ public class ComodoTeste implements ApplicationRunner {
 		comodo3.getListaAparelhos().add(ac);
 		comodo3.getListaAparelhos().add(fechadura);
 		comodo3.setTipo("Cozinha");
-		comodo3.setNome("Quarto da Nina");
+		comodo3.setNome("Cozinha");
 		System.out.println(comodo3);
 	}
 }

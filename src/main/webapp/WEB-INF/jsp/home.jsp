@@ -1,17 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Software Domótica</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body class="table-light">
+<body>
+	<nav class="navbar navbar-expand-sm bg-secondary navbar-light">
+		<div class="container-fluid">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="/comodo/lista">Comodo</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="/responsavel/lista">Responsavel</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="/arcondicionado/lista">ArCondicionado</a></li>
+				<li class="nav-item"><a class="nav-link" href="/luz/lista">Luz</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="/fechadura/lista">Fechadura</a></li>
+			</ul>
+		</div>
+	</nav>
 	<div class="container mt-3">
-		<h2 align="center"><b>AppDomotica</b></h2>
+		<h2 align="center">
+			<b>AppDomotica</b>
+		</h2>
 		<h4>Software para controle de uma casa automatizada</h4>
 		<br>
 		<h3>Classe: Comodo</h3>

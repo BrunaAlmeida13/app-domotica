@@ -15,7 +15,7 @@ public class FechaduraTeste implements ApplicationRunner {
 		
 		Fechadura fechadura1 = new Fechadura();
 		fechadura1.setNome("Fechadura sala");
-		fechadura1.setStatus("Ligada");
+		fechadura1.setStatus("Trancada");
 		fechadura1.setTimerInicio(null);
 		fechadura1.setTimerFim(null);
 		fechadura1.setSenha("8745");
