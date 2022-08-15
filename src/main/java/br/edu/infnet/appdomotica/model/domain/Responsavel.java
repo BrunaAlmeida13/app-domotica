@@ -1,6 +1,8 @@
 package br.edu.infnet.appdomotica.model.domain;
 
-public class Responsavel {
+import br.edu.infnet.appdomotica.interfaces.IPrinter;
+
+public class Responsavel implements IPrinter {
 	public String login;
 	public String senha;
 	public String cpf;
@@ -12,7 +14,8 @@ public class Responsavel {
 		this.cpf = cpf;
 		this.telefone = telefone;
 	}
-	
+
+	@Override
 	public void impressao() {
 		System.out.println("#Responsavel");
 		System.out.println(this);
@@ -55,4 +58,5 @@ public class Responsavel {
 		return "Login: " + this.login + "; Senha: " + this.senha + "; CPF: " + this.cpf + "; Telefone: "
 				+ this.telefone;
 	}
+
 }

@@ -3,16 +3,19 @@ package br.edu.infnet.appdomotica.model.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Comodo {
+import br.edu.infnet.appdomotica.interfaces.IPrinter;
+
+public class Comodo implements IPrinter {
 	private String tipo;
 	private String nome;
 	private List<Aparelho> listaAparelhos = new ArrayList<Aparelho>();
 
+	@Override
 	public void impressao() {
 		System.out.println("#Fechadura");
 		System.out.println(this);
 	}
-	
+
 	public String getTipo() {
 		return tipo;
 	}
