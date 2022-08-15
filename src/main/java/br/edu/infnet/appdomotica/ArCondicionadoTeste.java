@@ -7,7 +7,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appdomotica.model.domain.ArCondicionado;
-import br.edu.infnet.appdomotica.model.test.AppAparelho;
+import br.edu.infnet.appdomotica.model.test.AppImpressao;
 
 @Component
 public class ArCondicionadoTeste implements ApplicationRunner {
@@ -23,7 +23,7 @@ public class ArCondicionadoTeste implements ApplicationRunner {
 		ac1.setTemperatura(22.0);
 		ac1.setVentilacao(true);
 		ac1.setPower(true);
-		new AppAparelho("Configuração do 'A.C. quarto suíte'").relatorio(ac1); 
+		AppImpressao.relatorio("Configuração do 'A.C. quarto suíte'", ac1); 
 		
 		ArCondicionado ac2 = new ArCondicionado();
 		ac2.setNome("A.C. quarto Nina");
@@ -33,7 +33,7 @@ public class ArCondicionadoTeste implements ApplicationRunner {
 		ac2.setTemperatura(20.0);
 		ac2.setVentilacao(false);
 		ac2.setPower(true);
-		new AppAparelho("Configuração do 'A.C. quarto Nina'").relatorio(ac2); 
+		AppImpressao.relatorio("Configuração do 'A.C. quarto Nina'", ac2); 
 		
 		ArCondicionado ac3 = new ArCondicionado();
 		ac3.setNome("A.C. Sala");
@@ -43,6 +43,6 @@ public class ArCondicionadoTeste implements ApplicationRunner {
 		ac3.setTemperatura(22.0);
 		ac3.setVentilacao(true);
 		ac3.setPower(true);	
-		new AppAparelho("Configuração do 'A.C. Sala'").relatorio(ac3); 
+		AppImpressao.relatorio("Configuração do 'A.C. Sala'", ac3); 
 	}
 }

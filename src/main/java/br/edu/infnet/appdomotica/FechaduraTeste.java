@@ -5,7 +5,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appdomotica.model.domain.Fechadura;
-import br.edu.infnet.appdomotica.model.test.AppAparelho;
+import br.edu.infnet.appdomotica.model.test.AppImpressao;
 
 @Component
 public class FechaduraTeste implements ApplicationRunner {
@@ -21,7 +21,7 @@ public class FechaduraTeste implements ApplicationRunner {
 		fechadura1.setSenha("8745");
 		fechadura1.setTrancada(true);
 		fechadura1.setAlarme(true);
-		new AppAparelho("Configuração da 'Fechadura sala'").relatorio(fechadura1); 
+		AppImpressao.relatorio("Configuração da 'Fechadura sala'", fechadura1); 
 		
 		Fechadura fechadura2 = new Fechadura();
 		fechadura2.setNome("Fechadura cozinha");
@@ -31,7 +31,7 @@ public class FechaduraTeste implements ApplicationRunner {
 		fechadura2.setSenha("6489");
 		fechadura2.setTrancada(false);
 		fechadura2.setAlarme(false);
-		new AppAparelho("Configuração da 'Fechadura cozinha'").relatorio(fechadura2); 
+		AppImpressao.relatorio("Configuração da 'Fechadura cozinha'", fechadura2); 
 		
 		Fechadura fechadura3 = new Fechadura();
 		fechadura3.setNome("Fechadura portão garagem");
@@ -41,6 +41,6 @@ public class FechaduraTeste implements ApplicationRunner {
 		fechadura3.setSenha("4215");
 		fechadura3.setTrancada(true);
 		fechadura3.setAlarme(false);
-		new AppAparelho("Configuração da 'Fechadura portão garagem'").relatorio(fechadura3); 
+		AppImpressao.relatorio("Configuração da 'Fechadura portão garagem'", fechadura3); 
 	}
 }

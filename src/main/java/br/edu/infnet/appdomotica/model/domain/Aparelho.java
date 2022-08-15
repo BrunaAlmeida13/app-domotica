@@ -12,10 +12,8 @@ public abstract class Aparelho implements IPrinter {
 	public LocalDateTime timerInicio = LocalDateTime.now();
 	public LocalDateTime timerFim = LocalDateTime.now();
 	
-	//public abstract void impressao();
-	
 	public long quantidadeHorasAgendada() {
-		// TODO resolver exception; terminar checklist
+		// TODO resolver exception; terminar checklist; colocar como abstract
 		//long hours = ChronoUnit.HOURS.between(timerInicio, timerFim);
 		return 0;
 	}
