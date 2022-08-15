@@ -6,7 +6,6 @@ public class Luz extends Aparelho {
 	public int volumeSom;
 	public boolean power;
 
-
 	@Override
 	public void impressao() {
 		System.out.println("#Luz");

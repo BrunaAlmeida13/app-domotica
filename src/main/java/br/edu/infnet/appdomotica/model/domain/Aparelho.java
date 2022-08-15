@@ -4,13 +4,15 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
-public abstract class Aparelho {
+import br.edu.infnet.appdomotica.interfaces.IPrinter;
+
+public abstract class Aparelho implements IPrinter {
 	public String nome;
 	public String status;
 	public LocalDateTime timerInicio = LocalDateTime.now();
 	public LocalDateTime timerFim = LocalDateTime.now();
 	
-	public abstract void impressao();
+	//public abstract void impressao();
 	
 	public long quantidadeHorasAgendada() {
 		// TODO resolver exception; terminar checklist

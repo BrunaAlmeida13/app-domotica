@@ -4,7 +4,7 @@ public class Fechadura extends Aparelho {
 	public String senha;
 	public boolean trancada;
 	public boolean alarme;
-
+	
 	@Override
 	public void impressao() {
 		System.out.println("#Fechadura");
