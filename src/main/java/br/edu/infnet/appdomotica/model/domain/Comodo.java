@@ -9,6 +9,11 @@ public class Comodo implements IPrinter {
 	private String tipo;
 	private String nome;
 	private List<Aparelho> listaAparelhos = new ArrayList<Aparelho>();
+	private Responsavel responsavel;
+
+	public Comodo(Responsavel responsavel) {
+		this.responsavel = responsavel;
+	}
 
 	@Override
 	public void impressao() {
@@ -38,7 +43,8 @@ public class Comodo implements IPrinter {
 
 	@Override
 	public String toString() {
-		return "Tipo: " + this.tipo + "; Nome: " + this.nome + "; \nLista de aparelhos no cômodo: "
-				+ listaAparelhos.toString();
+		return "Tipo: " + this.tipo + "; Nome: " + this.nome + "; \nResponsavel: " + responsavel + "; \nNúmero de aparelhos no cômodo: "
+				+ listaAparelhos.size() + "\n";
+		//listaAparelhos.toString()
 	}
 }
