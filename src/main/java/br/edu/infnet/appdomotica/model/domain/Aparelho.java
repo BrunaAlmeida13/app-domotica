@@ -3,6 +3,7 @@ package br.edu.infnet.appdomotica.model.domain;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Objects;
 
 import br.edu.infnet.appdomotica.interfaces.IPrinter;
 
@@ -50,6 +51,23 @@ public abstract class Aparelho implements IPrinter {
 		this.timerFim = timerFim;
 	}
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(nome);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Aparelho other = (Aparelho) obj;
+		return Objects.equals(nome, other.nome);
+	}
+
 	@Override
 	public String toString() {
 		return "Nome: " + nome + ", Status: " + status + ", Timer Inicio: " + timerInicio + ", Timer Fim: "

@@ -1,14 +1,15 @@
 package br.edu.infnet.appdomotica.model.domain;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import br.edu.infnet.appdomotica.interfaces.IPrinter;
 
 public class Comodo implements IPrinter {
 	private String tipo;
 	private String nome;
-	private List<Aparelho> listaAparelhos = new ArrayList<Aparelho>();
+	private Set<Aparelho> listaAparelhos = new HashSet<Aparelho>();
 	private Responsavel responsavel;
 
 	public Comodo(Responsavel responsavel) {
@@ -36,9 +37,13 @@ public class Comodo implements IPrinter {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public List<Aparelho> getListaAparelhos() {
+	
+	public Set<Aparelho> getListaAparelho() {
 		return listaAparelhos;
+	}
+
+	public void setListaAparelho(Set<Aparelho> listaAparelho) {
+		this.listaAparelhos = listaAparelho;
 	}
 
 	@Override

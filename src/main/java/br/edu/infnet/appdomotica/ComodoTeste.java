@@ -33,6 +33,26 @@ public class ComodoTeste implements ApplicationRunner {
 		luz1.setVolumeSom(50);
 		luz1.setPower(true);
 		
+		Luz luz2 = new Luz();
+		luz2.setNome("Luz quarto suíte");
+		luz2.setStatus("Ligada");
+		luz2.setTimerInicio(null);
+		luz2.setTimerFim(null);
+		luz2.setCor("vermelho");
+		luz2.setIntensidade(3);
+		luz2.setVolumeSom(20);
+		luz2.setPower(true);
+		
+		Luz luz3 = new Luz();
+		luz3.setNome("Luz Cozinha");
+		luz2.setStatus("Desligada");
+		luz2.setTimerInicio(null);
+		luz2.setTimerFim(null);
+		luz3.setCor("");
+		luz3.setIntensidade(0);
+		luz3.setVolumeSom(0);
+		luz3.setPower(false);
+		
 		Fechadura fechadura1 = new Fechadura();
 		fechadura1.setNome("Fechadura sala");
 		fechadura1.setStatus("Trancada");
@@ -50,28 +70,46 @@ public class ComodoTeste implements ApplicationRunner {
 		ac1.setTemperatura(22.0);
 		ac1.setVentilacao(true);
 		ac1.setPower(true);
+		
+		ArCondicionado ac2 = new ArCondicionado();
+		ac2.setNome("A.C. quarto Nina");
+		ac2.setStatus("Ligado");
+		ac2.setTimerInicio(null);
+		ac2.setTimerFim(null);
+		ac2.setTemperatura(20.0);
+		ac2.setVentilacao(false);
+		ac2.setPower(true);
 
+		ArCondicionado ac3 = new ArCondicionado();
+		ac3.setNome("A.C. Sala");
+		ac3.setStatus("Ligado");
+		ac3.setTimerInicio(null);
+		ac3.setTimerFim(null);
+		ac3.setTemperatura(22.0);
+		ac3.setVentilacao(true);
+		ac3.setPower(true);	
+		
 		Responsavel resp1 = new Responsavel("responsavel1@email.com", "usu1", "658487891269", "61456987263"); 
 		Comodo comodo1 = new Comodo(resp1);
-		comodo1.getListaAparelhos().add(luz1);
-		comodo1.getListaAparelhos().add(ac1);
+		comodo1.getListaAparelho().add(luz1);
+		comodo1.getListaAparelho().add(ac1);
 		comodo1.setTipo("Quarto");
 		comodo1.setNome("Quarto da Nina");
 		AppImpressao.relatorio("Configuração do 'Quarto da Nina'", comodo1); 
 		
 		Responsavel resp2 = new Responsavel("responsavel2@email.com", "usu2", "658484578969", "61547548263");
 		Comodo comodo2 = new Comodo(resp2);
-		comodo2.getListaAparelhos().add(luz1);
-		comodo2.getListaAparelhos().add(ac1);
+		comodo2.getListaAparelho().add(luz2);
+		comodo2.getListaAparelho().add(ac2);
 		comodo2.setTipo("Quarto");
 		comodo2.setNome("Quarto Suíte");
 		AppImpressao.relatorio("Configuração da 'Quarto Suíte'", comodo2); 
 		
 		Responsavel resp3 = new Responsavel("responsavel3@email.com", "usu3", "658487565869", "61548467963");
 		Comodo comodo3 = new Comodo(resp3);
-		comodo3.getListaAparelhos().add(luz1);
-		comodo3.getListaAparelhos().add(ac1);
-		comodo3.getListaAparelhos().add(fechadura1);
+		comodo3.getListaAparelho().add(luz3);
+		comodo3.getListaAparelho().add(ac3);
+		comodo3.getListaAparelho().add(fechadura1);
 		comodo3.setTipo("Cozinha");
 		comodo3.setNome("Cozinha");
 		AppImpressao.relatorio("Configuração da 'Cozinha'", comodo3); 
