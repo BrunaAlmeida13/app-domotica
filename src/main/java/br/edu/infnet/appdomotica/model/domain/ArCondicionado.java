@@ -1,6 +1,7 @@
 package br.edu.infnet.appdomotica.model.domain;
 
 public class ArCondicionado extends Aparelho {
+	private Integer id;
 	public double temperatura;
 	public boolean ventilacao;
 	public boolean power;
@@ -33,6 +34,14 @@ public class ArCondicionado extends Aparelho {
 
 	public void setPower(boolean power) {
 		this.power = power;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	@Override

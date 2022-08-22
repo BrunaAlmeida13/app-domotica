@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,6 +35,7 @@
 		<table class="table table-striped table-dark">
 			<thead class="thead-dark">
 				<tr class="table-secondary">
+					<th scope="col">ID</th>
 					<th scope="col">Nome</th>
 					<th scope="col">Status</th>
 					<th scope="col">Timer Inicio</th>
@@ -45,33 +46,18 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="table-dark">
-					<td>Fechadura sala</td>
-					<td>Trancada</td>
-					<td>2022/08/14 19:00:00</td>
-					<td>2022/08/15 6:00:00</td>
-					<td>8745</td>
-					<td>Trancada</td>
-					<td>Ligado</td>
-				</tr>
-				<tr class="table-dark">
-					<td>Fechadura cozinha</td>
-					<td>Destrancada</td>
-					<td>null</td>
-					<td>null</td>
-					<td>6489</td>
-					<td>Destrancada</td>
-					<td>Desligado</td>
-				</tr>
-				<tr class="table-dark">
-					<td>Fechadura portão garagem</td>
-					<td>Trancada</td>
-					<td>2022/08/14 7:00:00</td>
-					<td>2022/08/14 19:00:00</td>
-					<td>4215</td>
-					<td>Trancada</td>
-					<td>Desligado</td>
-				</tr>
+				<c:forEach var="f" items="${listagem}">
+					<tr class="table-dark">
+						<td>${f.id}</td>
+						<td>${f.nome}</td>
+						<td>${f.status}</td>
+						<td>${f.timerInicio}</td>
+						<td>${f.timerFim}</td>
+						<td>${f.senha}</td>
+						<td>${f.trancada}</td>
+						<td>${f.alarme}</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,6 +35,7 @@
 		<table class="table table-striped table-dark">
 			<thead class="thead-dark">
 				<tr class="table-secondary">
+					<th scope="col">ID</th>
 					<th scope="col">Nome</th>
 					<th scope="col">Status</th>
 					<th scope="col">Timer Inicio</th>
@@ -45,33 +46,18 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="table-dark">
-					<td>A.C. quarto suíte</td>
-					<td>Ligado</td>
-					<td>2022/08/14 8:30:00</td>
-					<td>2022/08/14 18:30:00</td>
-					<td>22.0</td>
-					<td>Ligado</td>
-					<td>Ligado</td>
-				</tr>
-				<tr class="table-dark">
-					<td>A.C. quarto Nina</td>
-					<td>Ligado</td>
-					<td>2022/08/14 9:30:00</td>
-					<td>2022/08/14 17:30:00</td>
-					<td>20.0</td>
-					<td>Desligado</td>
-					<td>Ligado</td>
-				</tr>
-				<tr class="table-dark">
-					<td>A.C. Sala</td>
-					<td>2022/08/14 7:30:00</td>
-					<td>2022/08/14 16:00:00</td>
-					<td>temperatura</td>
-					<td>22.0</td>
-					<td>Ligado</td>
-					<td>Ligado</td>
-				</tr>
+				<c:forEach var="a" items="${listagem}">
+					<tr class="table-dark">
+						<td>${a.id}</td>
+						<td>${a.nome}</td>
+						<td>${a.status}</td>
+						<td>${a.timerInicio}</td>
+						<td>${a.timerFim}</td>
+						<td>${a.temperatura}</td>
+						<td>${a.ventilacao}</td>
+						<td>${a.power}</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>

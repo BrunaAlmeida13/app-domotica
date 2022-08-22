@@ -70,7 +70,7 @@ public abstract class Aparelho implements IPrinter {
 
 	@Override
 	public String toString() {
-		return "Nome: " + nome + ", Status: " + status + ", Timer Inicio: " + timerInicio + ", Timer Fim: "
-				+ timerFim + "; " + "Duração agendada do tempo de funcionamento: " + this.quantidadeHorasAgendada() + "; ";
+		return "Nome: " + this.nome + ", Status: " + this.status + ", Timer Inicio: " + this.timerInicio + ", Timer Fim: "
+				+ this.timerFim + "; " + "Duração agendada do tempo de funcionamento: " + this.quantidadeHorasAgendada() + "; ";
 	}
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,27 +35,23 @@
 		<table class="table table-striped table-dark">
 			<thead class="thead-dark">
 				<tr class="table-secondary">
+					<th scope="col">ID</th>
 					<th scope="col">Tipo</th>
 					<th scope="col">Nome</th>
-					<th scope="col">Lista de Aparelhos</th>
+					<th scope="col">Lista de aparelhos</th>
+					<th scope="col">Responsavel</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="table-dark">
-					<td>Quarto</td>
-					<td>Quarto da Nina</td>
-					<td>Luz ('Luz quarto Nina'), A.C. ('A.C. quarto Nina')</td>
-				</tr>
-				<tr class="table-dark">
-					<td>Quarto</td>
-					<td>Quarto Suíte</td>
-					<td>Luz ('Luz quarto suíte'), A.C. ('A.C. quarto suíte')</td>
-				</tr>
-				<tr class="table-dark">
-					<td>Cozinha</td>
-					<td>Cozinha</td>
-					<td>Luz ('Luz Cozinha'), A.C. ('A.C. cozinha'), Fechadura ('Fechadura cozinha')</td>
-				</tr>
+				<c:forEach var="c" items="${listagem}">
+					<tr class="table-dark">
+						<td>${c.id}</td>
+						<td>${c.tipo}</td>
+						<td>${c.nome}</td>
+						<td>${c.listaAparelhos}</td>
+						<td>${c.responsavel}</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>

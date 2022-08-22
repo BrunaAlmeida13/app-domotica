@@ -3,10 +3,11 @@ package br.edu.infnet.appdomotica.model.domain;
 import br.edu.infnet.appdomotica.interfaces.IPrinter;
 
 public class Responsavel implements IPrinter {
-	public String login;
-	public String senha;
-	public String cpf;
-	public String telefone;
+	private Integer id;
+	private String login;
+	private String senha;
+	private String cpf;
+	private String telefone;
 
 	public Responsavel(String login, String senha, String cpf, String telefone) {
 		this.login = login;
@@ -51,6 +52,14 @@ public class Responsavel implements IPrinter {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	@Override

@@ -1,16 +1,17 @@
 package br.edu.infnet.appdomotica.model.domain;
 
 public class Fechadura extends Aparelho {
+	private Integer id;
 	public String senha;
 	public boolean trancada;
 	public boolean alarme;
-	
+
 	@Override
 	public void impressao() {
 		System.out.println("#Fechadura");
 		System.out.println(this);
 	}
-	
+
 	public String getSenha() {
 		return senha;
 	}
@@ -33,6 +34,14 @@ public class Fechadura extends Aparelho {
 
 	public void setAlarme(boolean alarme) {
 		this.alarme = alarme;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	@Override

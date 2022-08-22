@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,6 +35,7 @@
 		<table class="table table-striped table-dark">
 			<thead class="thead-dark">
 				<tr class="table-secondary">
+					<th scope="col">ID</th>
 					<th scope="col">Nome</th>
 					<th scope="col">Status</th>
 					<th scope="col">Timer Inicio</th>
@@ -46,36 +47,19 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="table-dark">
-					<td>Luz quarto Nina</td>
-					<td>Ligado</td>
-					<td>null</td>
-					<td>null</td>
-					<td>Azul</td>
-					<td>2</td>
-					<td>50</td>
-					<td>Ligada</td>
-				</tr>
-				<tr class="table-dark">
-					<td>Luz quarto suíte</td>
-					<td>Ligada</td>
-					<td>null</td>
-					<td>null</td>
-					<td>Vermelho</td>
-					<td>3</td>
-					<td>20</td>
-					<td>Ligada</td>
-				</tr>
-				<tr class="table-dark">
-					<td>Luz Cozinha</td>
-					<td>Desligada</td>
-					<td>null</td>
-					<td>null</td>
-					<td>null</td>
-					<td>0</td>
-					<td>0</td>
-					<td>Desligada</td>
-				</tr>
+				<c:forEach var="l" items="${listagem}">
+					<tr class="table-dark">
+						<td>${l.id}</td>
+						<td>${l.nome}</td>
+						<td>${l.status}</td>
+						<td>${l.timerInicio}</td>
+						<td>${l.timerFim}</td>
+						<td>${l.cor}</td>
+						<td>${l.intensidade}</td>
+						<td>${l.volumeSom}</td>
+						<td>${l.power}</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 		<br>

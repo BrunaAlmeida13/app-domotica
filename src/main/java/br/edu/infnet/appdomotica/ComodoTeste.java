@@ -6,6 +6,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.appdomotica.controller.ComodoController;
 import br.edu.infnet.appdomotica.model.domain.ArCondicionado;
 import br.edu.infnet.appdomotica.model.domain.Comodo;
 import br.edu.infnet.appdomotica.model.domain.Fechadura;
@@ -18,10 +19,6 @@ public class ComodoTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		
-		Luz luz = new Luz();
-		Fechadura fechadura = new Fechadura();
-		ArCondicionado ac = new ArCondicionado();
 
 		Luz luz1 = new Luz();
 		luz1.setNome("Luz quarto Nina");
@@ -54,7 +51,7 @@ public class ComodoTeste implements ApplicationRunner {
 		luz3.setPower(false);
 		
 		Fechadura fechadura1 = new Fechadura();
-		fechadura1.setNome("Fechadura sala");
+		fechadura1.setNome("Fechadura cozinha");
 		fechadura1.setStatus("Trancada");
 		fechadura1.setTimerInicio(null);
 		fechadura1.setTimerFim(null);
@@ -63,7 +60,7 @@ public class ComodoTeste implements ApplicationRunner {
 		fechadura1.setAlarme(true);
 		
 		ArCondicionado ac1 = new ArCondicionado();
-		ac1.setNome("A.C. quarto suíte");
+		ac1.setNome("A.C. quarto Nina");
 		ac1.setStatus("Ligado");
 		ac1.setTimerInicio(LocalDateTime.of(2022, 12, 25, 8, 30, 00));
 		ac1.setTimerFim(LocalDateTime.of(2022, 12, 25, 18, 30, 00));
@@ -72,7 +69,7 @@ public class ComodoTeste implements ApplicationRunner {
 		ac1.setPower(true);
 		
 		ArCondicionado ac2 = new ArCondicionado();
-		ac2.setNome("A.C. quarto Nina");
+		ac2.setNome("A.C. quarto suíte");
 		ac2.setStatus("Ligado");
 		ac2.setTimerInicio(null);
 		ac2.setTimerFim(null);
@@ -81,7 +78,7 @@ public class ComodoTeste implements ApplicationRunner {
 		ac2.setPower(true);
 
 		ArCondicionado ac3 = new ArCondicionado();
-		ac3.setNome("A.C. Sala");
+		ac3.setNome("A.C. Cozinha");
 		ac3.setStatus("Ligado");
 		ac3.setTimerInicio(null);
 		ac3.setTimerFim(null);
@@ -91,27 +88,27 @@ public class ComodoTeste implements ApplicationRunner {
 		
 		Responsavel resp1 = new Responsavel("responsavel1@email.com", "usu1", "658487891269", "61456987263"); 
 		Comodo comodo1 = new Comodo(resp1);
-		comodo1.getListaAparelho().add(luz1);
-		comodo1.getListaAparelho().add(ac1);
+		comodo1.getListaAparelhos().add(luz1);
+		comodo1.getListaAparelhos().add(ac1);
 		comodo1.setTipo("Quarto");
 		comodo1.setNome("Quarto da Nina");
-		AppImpressao.relatorio("Configuração do 'Quarto da Nina'", comodo1); 
+		ComodoController.incluir(comodo1); 
 		
 		Responsavel resp2 = new Responsavel("responsavel2@email.com", "usu2", "658484578969", "61547548263");
 		Comodo comodo2 = new Comodo(resp2);
-		comodo2.getListaAparelho().add(luz2);
-		comodo2.getListaAparelho().add(ac2);
+		comodo2.getListaAparelhos().add(luz2);
+		comodo2.getListaAparelhos().add(ac2);
 		comodo2.setTipo("Quarto");
 		comodo2.setNome("Quarto Suíte");
-		AppImpressao.relatorio("Configuração da 'Quarto Suíte'", comodo2); 
+		ComodoController.incluir(comodo2); 
 		
 		Responsavel resp3 = new Responsavel("responsavel3@email.com", "usu3", "658487565869", "61548467963");
 		Comodo comodo3 = new Comodo(resp3);
-		comodo3.getListaAparelho().add(luz3);
-		comodo3.getListaAparelho().add(ac3);
-		comodo3.getListaAparelho().add(fechadura1);
+		comodo3.getListaAparelhos().add(luz3);
+		comodo3.getListaAparelhos().add(ac3);
+		comodo3.getListaAparelhos().add(fechadura1);
 		comodo3.setTipo("Cozinha");
 		comodo3.setNome("Cozinha");
-		AppImpressao.relatorio("Configuração da 'Cozinha'", comodo3); 
+		ComodoController.incluir(comodo3); 
 	}
 }
