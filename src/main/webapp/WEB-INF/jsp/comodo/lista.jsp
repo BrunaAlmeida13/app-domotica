@@ -40,6 +40,7 @@
 					<th scope="col">Nome</th>
 					<th scope="col">Lista de aparelhos</th>
 					<th scope="col">Responsavel</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -50,6 +51,7 @@
 						<td>${c.nome}</td>
 						<td>${c.listaAparelhos}</td>
 						<td>${c.responsavel}</td>
+						<td><a href="/comodo/${c.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

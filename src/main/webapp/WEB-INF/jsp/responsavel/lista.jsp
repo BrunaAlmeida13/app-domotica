@@ -40,6 +40,7 @@
 					<th scope="col">Senha</th>
 					<th scope="col">CPF</th>
 					<th scope="col">Telefone</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -50,6 +51,7 @@
 						<td>${r.senha}</td>
 						<td>${r.cpf}</td>
 						<td>${r.telefone}</td>
+						<td><a href="/responsavel/${r.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

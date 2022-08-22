@@ -44,6 +44,7 @@
 					<th scope="col">Intensidade</th>
 					<th scope="col">Volume Som</th>
 					<th scope="col">Power</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -58,6 +59,7 @@
 						<td>${l.intensidade}</td>
 						<td>${l.volumeSom}</td>
 						<td>${l.power}</td>
+						<td><a href="/luz/${l.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

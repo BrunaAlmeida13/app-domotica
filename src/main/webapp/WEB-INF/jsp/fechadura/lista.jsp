@@ -43,6 +43,7 @@
 					<th scope="col">Senha</th>
 					<th scope="col">Trancada</th>
 					<th scope="col">Alarme</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -56,6 +57,7 @@
 						<td>${f.senha}</td>
 						<td>${f.trancada}</td>
 						<td>${f.alarme}</td>
+						<td><a href="/fechadura/${f.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

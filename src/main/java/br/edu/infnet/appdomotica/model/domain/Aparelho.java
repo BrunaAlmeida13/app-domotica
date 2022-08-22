@@ -8,14 +8,15 @@ import java.util.Objects;
 import br.edu.infnet.appdomotica.interfaces.IPrinter;
 
 public abstract class Aparelho implements IPrinter {
+	private Integer id;
 	public String nome;
 	public String status;
 	public LocalDateTime timerInicio = LocalDateTime.now();
 	public LocalDateTime timerFim = LocalDateTime.now();
-	
+
 	public long quantidadeHorasAgendada() {
 		// TODO resolver exception; terminar checklist; colocar como abstract
-		//long hours = ChronoUnit.HOURS.between(timerInicio, timerFim);
+		// long hours = ChronoUnit.HOURS.between(timerInicio, timerFim);
 		return 0;
 	}
 
@@ -50,7 +51,15 @@ public abstract class Aparelho implements IPrinter {
 	public void setTimerFim(LocalDateTime timerFim) {
 		this.timerFim = timerFim;
 	}
-	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(nome);
@@ -70,7 +79,8 @@ public abstract class Aparelho implements IPrinter {
 
 	@Override
 	public String toString() {
-		return "Nome: " + this.nome + ", Status: " + this.status + ", Timer Inicio: " + this.timerInicio + ", Timer Fim: "
-				+ this.timerFim + "; " + "Duração agendada do tempo de funcionamento: " + this.quantidadeHorasAgendada() + "; ";
+		return "Nome: " + this.nome + ", Status: " + this.status + ", Timer Inicio: " + this.timerInicio
+				+ ", Timer Fim: " + this.timerFim + "; " + "Duração agendada do tempo de funcionamento: "
+				+ this.quantidadeHorasAgendada() + "; ";
 	}
 }

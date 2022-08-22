@@ -43,6 +43,7 @@
 					<th scope="col">Temperatura</th>
 					<th scope="col">Ventilacao</th>
 					<th scope="col">Power</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -56,6 +57,7 @@
 						<td>${a.temperatura}</td>
 						<td>${a.ventilacao}</td>
 						<td>${a.power}</td>
+						<td><a href="/arcondicionado/${a.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

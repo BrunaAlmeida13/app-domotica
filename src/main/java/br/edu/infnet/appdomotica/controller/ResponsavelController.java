@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import br.edu.infnet.appdomotica.model.domain.Responsavel;
 import br.edu.infnet.appdomotica.model.test.AppImpressao;
@@ -35,5 +36,16 @@ public class ResponsavelController {
 		model.addAttribute("listagem", obterLista());
 		
 		return "responsavel/lista";
+	}
+	
+	public static void excluir(Integer id) {
+		mapaResponsavel.remove(id);
+	}
+	
+	@GetMapping(value = "/responsavel/{id}/excluir")
+	public String exclusao(@PathVariable Integer id) {
+		excluir(id);
+		
+		return "redirect:/responsavel/lista";
 	}
 }

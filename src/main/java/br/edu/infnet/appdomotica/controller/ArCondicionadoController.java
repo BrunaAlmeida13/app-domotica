@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import br.edu.infnet.appdomotica.model.domain.ArCondicionado;
 import br.edu.infnet.appdomotica.model.test.AppImpressao;
@@ -34,5 +35,16 @@ public class ArCondicionadoController {
 		model.addAttribute("listagem", obterLista());
 		
 		return "arCondicionado/lista";
+	}
+	
+	public static void excluir(Integer id) {
+		mapaAC.remove(id);
+	}
+	
+	@GetMapping(value = "/arcondicionado/{id}/excluir")
+	public String exclusao(@PathVariable Integer id) {
+		excluir(id);
+		
+		return "redirect:/arcondicionado/lista";
 	}
 }

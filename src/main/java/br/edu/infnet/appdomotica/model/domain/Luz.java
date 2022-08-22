@@ -1,7 +1,6 @@
 package br.edu.infnet.appdomotica.model.domain;
 
 public class Luz extends Aparelho {
-	private Integer id;
 	public String cor;
 	public int intensidade;
 	public int volumeSom;
@@ -43,14 +42,6 @@ public class Luz extends Aparelho {
 
 	public void setPower(boolean power) {
 		this.power = power;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	@Override
