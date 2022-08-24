@@ -12,7 +12,6 @@ import br.edu.infnet.appdomotica.model.domain.Comodo;
 import br.edu.infnet.appdomotica.model.domain.Fechadura;
 import br.edu.infnet.appdomotica.model.domain.Luz;
 import br.edu.infnet.appdomotica.model.domain.Responsavel;
-import br.edu.infnet.appdomotica.model.test.AppImpressao;
 
 @Component
 public class ComodoTeste implements ApplicationRunner {

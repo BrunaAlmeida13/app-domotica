@@ -1,4 +1,4 @@
-package br.edu.infnet.appdomotica.model.test;
+package br.edu.infnet.appdomotica.model;
 
 import br.edu.infnet.appdomotica.interfaces.IPrinter;
 

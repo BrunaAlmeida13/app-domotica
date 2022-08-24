@@ -21,6 +21,7 @@ public class FechaduraTeste implements ApplicationRunner {
 		fechadura1.setSenha("8745");
 		fechadura1.setTrancada(true);
 		fechadura1.setAlarme(true);
+		System.out.println("Duração agendada do tempo de funcionamento: " + fechadura1.quantidadeHorasAgendada());
 		FechaduraController.incluir(fechadura1);
 		
 		Fechadura fechadura2 = new Fechadura();
@@ -31,6 +32,7 @@ public class FechaduraTeste implements ApplicationRunner {
 		fechadura2.setSenha("6489");
 		fechadura2.setTrancada(false);
 		fechadura2.setAlarme(false);
+		System.out.println("Duração agendada do tempo de funcionamento: " + fechadura2.quantidadeHorasAgendada());
 		FechaduraController.incluir(fechadura2);
 		
 		Fechadura fechadura3 = new Fechadura();
@@ -41,5 +43,6 @@ public class FechaduraTeste implements ApplicationRunner {
 		fechadura3.setSenha("4215");
 		fechadura3.setTrancada(true);
 		fechadura3.setAlarme(false);
+		System.out.println("Duração agendada do tempo de funcionamento: " + fechadura3.quantidadeHorasAgendada());
 		FechaduraController.incluir(fechadura3);	}
 }

@@ -9,8 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import br.edu.infnet.appdomotica.model.AppImpressao;
 import br.edu.infnet.appdomotica.model.domain.Fechadura;
-import br.edu.infnet.appdomotica.model.test.AppImpressao;
 
 @Controller
 public class FechaduraController {

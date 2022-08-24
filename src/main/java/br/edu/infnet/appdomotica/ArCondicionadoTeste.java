@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appdomotica.controller.ArCondicionadoController;
 import br.edu.infnet.appdomotica.model.domain.ArCondicionado;
-import br.edu.infnet.appdomotica.model.test.AppImpressao;
 
 @Component
 public class ArCondicionadoTeste implements ApplicationRunner {
@@ -24,6 +23,7 @@ public class ArCondicionadoTeste implements ApplicationRunner {
 		ac1.setTemperatura(22.0);
 		ac1.setVentilacao(true);
 		ac1.setPower(true);
+		System.out.println("Duração agendada do tempo de funcionamento: " + ac1.quantidadeHorasAgendada());
 		ArCondicionadoController.incluir(ac1);
 		
 		ArCondicionado ac2 = new ArCondicionado();
@@ -34,6 +34,7 @@ public class ArCondicionadoTeste implements ApplicationRunner {
 		ac2.setTemperatura(20.0);
 		ac2.setVentilacao(false);
 		ac2.setPower(true);
+		System.out.println("Duração agendada do tempo de funcionamento: " + ac2.quantidadeHorasAgendada());
 		ArCondicionadoController.incluir(ac2); 
 		
 		ArCondicionado ac3 = new ArCondicionado();
@@ -44,6 +45,7 @@ public class ArCondicionadoTeste implements ApplicationRunner {
 		ac3.setTemperatura(22.0);
 		ac3.setVentilacao(true);
 		ac3.setPower(true);	
+		System.out.println("Duração agendada do tempo de funcionamento: " + ac3.quantidadeHorasAgendada());
 		ArCondicionadoController.incluir(ac3); 
 	}
 }

@@ -24,6 +24,7 @@ public class LuzTeste implements ApplicationRunner {
 		luz1.setIntensidade(2);
 		luz1.setVolumeSom(50);
 		luz1.setPower(true);
+		System.out.println("Duração agendada do tempo de funcionamento: " + luz1.quantidadeHorasAgendada());
 		LuzController.incluir(luz1);
 
 		Luz luz2 = new Luz();
@@ -35,6 +36,7 @@ public class LuzTeste implements ApplicationRunner {
 		luz2.setIntensidade(3);
 		luz2.setVolumeSom(20);
 		luz2.setPower(true);
+		System.out.println("Duração agendada do tempo de funcionamento: " + luz2.quantidadeHorasAgendada());
 		LuzController.incluir(luz2);
 
 		Luz luz3 = new Luz();
@@ -46,6 +48,7 @@ public class LuzTeste implements ApplicationRunner {
 		luz3.setIntensidade(0);
 		luz3.setVolumeSom(0);
 		luz3.setPower(false);
+		System.out.println("Duração agendada do tempo de funcionamento: " + luz3.quantidadeHorasAgendada());
 		LuzController.incluir(luz3);
 	}
 }
