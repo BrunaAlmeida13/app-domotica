@@ -13,7 +13,13 @@ public class Fechadura extends Aparelho {
 
 	@Override
 	public long quantidadeHorasAgendada() {
-		return super.quantidadeHorasAgendada();
+		long hours = 0;
+		if (getTimerFim() == null || getTimerInicio() == null) {
+			System.out.println("Função horario de funcionamento desligado");
+		} else {
+			hours = getTimerFim().getHour() - getTimerInicio().getHour();
+		}
+		return hours;
 	}
 	
 	public String getSenha() {

@@ -15,13 +15,13 @@ public class Luz extends Aparelho {
 	@Override
 	public long quantidadeHorasAgendada() {
 		long hours = 0;
-		if (timerFim == null || timerInicio == null) {
+		if (getTimerFim() == null || getTimerInicio() == null) {
 			System.out.println("Função horario de funcionamento desligado");
 		} else {
-			hours = timerFim.getHour() - timerInicio.getHour();
+			hours = getTimerFim().getHour() - getTimerInicio().getHour();
 			boolean tempoMaximo = hours >= 11;
 				if(tempoMaximo) {
-					power = false;
+					this.power = false;
 				}
 		}
 		return hours;

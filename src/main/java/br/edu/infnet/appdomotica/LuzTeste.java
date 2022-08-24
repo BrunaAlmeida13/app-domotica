@@ -19,7 +19,7 @@ public class LuzTeste implements ApplicationRunner {
 		luz1.setNome("Luz quarto Nina");
 		luz1.setStatus("Ligada");
 		luz1.setTimerInicio(LocalDateTime.of(2022, 12, 25, 8, 30, 00));
-		luz1.setTimerFim(LocalDateTime.of(2022, 12, 25, 20, 30, 00));
+		luz1.setTimerFim(LocalDateTime.of(2022, 12, 25, 19, 30, 00));
 		luz1.setCor("azul");
 		luz1.setIntensidade(2);
 		luz1.setVolumeSom(50);

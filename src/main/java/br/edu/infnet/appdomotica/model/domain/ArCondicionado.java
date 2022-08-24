@@ -14,10 +14,10 @@ public class ArCondicionado extends Aparelho {
 	@Override
 	public long quantidadeHorasAgendada() {
 		long hours = 1;
-		if (timerFim == null || timerInicio == null) {
+		if (getTimerFim() == null || getTimerInicio() == null) {
 			System.out.println("Função horario de funcionamento para no mínimo 1h");
 		} else {
-			hours = timerFim.getHour() - timerInicio.getHour();
+			hours = getTimerFim().getHour() - getTimerInicio().getHour();
 		}
 		return hours;
 	}

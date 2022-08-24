@@ -9,12 +9,14 @@ import br.edu.infnet.appdomotica.interfaces.IPrinter;
 
 public abstract class Aparelho implements IPrinter {
 	private Integer id;
-	public String nome;
-	public String status;
-	public LocalDateTime timerInicio = LocalDateTime.now();
-	public LocalDateTime timerFim = LocalDateTime.now();
+	private String nome;
+	private String status;
+	private LocalDateTime timerInicio = LocalDateTime.now();
+	private LocalDateTime timerFim = LocalDateTime.now();
 
-	public long quantidadeHorasAgendada() {
+	public abstract long quantidadeHorasAgendada();
+	
+	/*public long quantidadeHorasAgendada() {
 		long hours = 0;
 		if (timerFim == null || timerInicio == null) {
 			System.out.println("Função horario de funcionamento desligado");
@@ -22,7 +24,7 @@ public abstract class Aparelho implements IPrinter {
 			hours = timerFim.getHour() - timerInicio.getHour();
 		}
 		return hours;
-	}
+	}*/
 
 	public String getNome() {
 		return nome;
