@@ -11,15 +11,41 @@ import br.edu.infnet.appdomotica.model.domain.Responsavel;
 public class ResponsavelTeste implements ApplicationRunner{
 
 	@Override
-	public void run(ApplicationArguments args) throws Exception {
+	public void run(ApplicationArguments args) {
 		
-		Responsavel resp1 = new Responsavel("responsavel1@email.com", "usu1", "658487891269", "61456987263");
-		ResponsavelController.incluir(resp1);
+		try {
+			Responsavel resp1 = new Responsavel("responsavel1@email.com", "usu1", "658487891269", "61456987263");
+			ResponsavelController.incluir(resp1);
+		} catch (Exception e) {
+			System.out.println("[Erro] " + e.getMessage());
+		}
 		
-		Responsavel resp2 = new Responsavel("responsavel2@email.com", "usu2", "658484578969", "61547548263");
-		ResponsavelController.incluir(resp2);
+		try {
+			Responsavel resp2 = new Responsavel("responsavel2@email.com", "usu2", "658484578969", "61547548263");
+			ResponsavelController.incluir(resp2);
+		} catch (Exception e) {
+			System.out.println("[Erro] " + e.getMessage());
+		}
 		
-		Responsavel resp3 = new Responsavel("responsavel3@email.com", "usu3", "658487565869", "61548467963");
-		ResponsavelController.incluir(resp3);
+		try {
+			Responsavel resp3 = new Responsavel("responsavel3@email.com", "usu3", "658487565869", "61548467963");
+			ResponsavelController.incluir(resp3);
+		} catch (Exception e) {
+			System.out.println("[Erro] " + e.getMessage());
+		}
+		
+		try {
+			Responsavel resp4 = new Responsavel("responsavel4@email.com", "usu4", null, "61548447963");
+			ResponsavelController.incluir(resp4);
+		} catch (Exception e) {
+			System.out.println("[Erro] " + e.getMessage());
+		}
+		
+		try {
+			Responsavel resp5 = new Responsavel("responsavel5@email.com", "usu5", "", "61548465963");
+			ResponsavelController.incluir(resp5);
+		} catch (Exception e) {
+			System.out.println("[Erro] " + e.getMessage());
+		}
 	}
 }
