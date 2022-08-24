@@ -15,9 +15,13 @@ public abstract class Aparelho implements IPrinter {
 	public LocalDateTime timerFim = LocalDateTime.now();
 
 	public long quantidadeHorasAgendada() {
-		// TODO resolver exception; terminar checklist; colocar como abstract
-		// long hours = ChronoUnit.HOURS.between(timerInicio, timerFim);
-		return 0;
+		long hours = 0;
+		if (timerFim == null || timerInicio == null) {
+			System.out.println("Função horario de funcionamento desligado");
+		} else {
+			hours = timerFim.getHour() - timerInicio.getHour();
+		}
+		return hours;
 	}
 
 	public String getNome() {

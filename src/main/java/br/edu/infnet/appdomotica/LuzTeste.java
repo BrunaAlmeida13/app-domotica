@@ -1,5 +1,7 @@
 package br.edu.infnet.appdomotica;
 
+import java.time.LocalDateTime;
+
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -16,8 +18,8 @@ public class LuzTeste implements ApplicationRunner {
 		Luz luz1 = new Luz();
 		luz1.setNome("Luz quarto Nina");
 		luz1.setStatus("Ligada");
-		luz1.setTimerInicio(null);
-		luz1.setTimerFim(null);
+		luz1.setTimerInicio(LocalDateTime.of(2022, 12, 25, 8, 30, 00));
+		luz1.setTimerFim(LocalDateTime.of(2022, 12, 25, 20, 30, 00));
 		luz1.setCor("azul");
 		luz1.setIntensidade(2);
 		luz1.setVolumeSom(50);

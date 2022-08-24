@@ -11,6 +11,11 @@ public class Fechadura extends Aparelho {
 		System.out.println(this);
 	}
 
+	@Override
+	public long quantidadeHorasAgendada() {
+		return super.quantidadeHorasAgendada();
+	}
+	
 	public String getSenha() {
 		return senha;
 	}

@@ -11,6 +11,17 @@ public class ArCondicionado extends Aparelho {
 		System.out.println(this);
 	}
 
+	@Override
+	public long quantidadeHorasAgendada() {
+		long hours = 1;
+		if (timerFim == null || timerInicio == null) {
+			System.out.println("Função horario de funcionamento para no mínimo 1h");
+		} else {
+			hours = timerFim.getHour() - timerInicio.getHour();
+		}
+		return hours;
+	}
+	
 	public double getTemperatura() {
 		return temperatura;
 	}
