@@ -6,12 +6,13 @@ import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appdomotica.controller.FechaduraController;
 import br.edu.infnet.appdomotica.model.domain.Fechadura;
+import br.edu.infnet.appdomotica.model.exceptions.TamanhoMaximoSenhaException;
 
 @Component
 public class FechaduraTeste implements ApplicationRunner {
 	
 	@Override
-	public void run(ApplicationArguments args) throws Exception {
+	public void run(ApplicationArguments args) {
 		
 		Fechadura fechadura1 = new Fechadura();
 		fechadura1.setNome("Fechadura sala");
@@ -21,8 +22,13 @@ public class FechaduraTeste implements ApplicationRunner {
 		fechadura1.setSenha("8745");
 		fechadura1.setTrancada(true);
 		fechadura1.setAlarme(true);
-		System.out.println("Duração agendada do tempo de funcionamento: " + fechadura1.quantidadeHorasAgendada());
-		FechaduraController.incluir(fechadura1);
+		try {
+			System.out.println("Duração agendada do tempo de funcionamento: " + fechadura1.quantidadeHorasAgendada());
+			FechaduraController.incluir(fechadura1);
+		} catch (TamanhoMaximoSenhaException e) {
+			System.out.println("[ERROR - FECHADURA] " + e.getMessage() + "\n");
+		}
+		
 		
 		Fechadura fechadura2 = new Fechadura();
 		fechadura2.setNome("Fechadura cozinha");
@@ -32,8 +38,12 @@ public class FechaduraTeste implements ApplicationRunner {
 		fechadura2.setSenha("6489");
 		fechadura2.setTrancada(false);
 		fechadura2.setAlarme(false);
-		System.out.println("Duração agendada do tempo de funcionamento: " + fechadura2.quantidadeHorasAgendada());
-		FechaduraController.incluir(fechadura2);
+		try {
+			System.out.println("Duração agendada do tempo de funcionamento: " + fechadura2.quantidadeHorasAgendada());
+			FechaduraController.incluir(fechadura2);
+		} catch (TamanhoMaximoSenhaException e) {
+			System.out.println("[ERROR - FECHADURA] " + e.getMessage() + "\n");
+		}
 		
 		Fechadura fechadura3 = new Fechadura();
 		fechadura3.setNome("Fechadura portão garagem");
@@ -43,6 +53,26 @@ public class FechaduraTeste implements ApplicationRunner {
 		fechadura3.setSenha("4215");
 		fechadura3.setTrancada(true);
 		fechadura3.setAlarme(false);
-		System.out.println("Duração agendada do tempo de funcionamento: " + fechadura3.quantidadeHorasAgendada());
-		FechaduraController.incluir(fechadura3);	}
+		try {
+			System.out.println("Duração agendada do tempo de funcionamento: " + fechadura3.quantidadeHorasAgendada());
+			FechaduraController.incluir(fechadura3);
+		} catch (TamanhoMaximoSenhaException e) {
+			System.out.println("[ERROR - FECHADURA] " + e.getMessage() + "\n");
+		}	
+	
+		Fechadura fechadura4 = new Fechadura();
+		fechadura4.setNome("Fechadura portão garagem");
+		fechadura4.setStatus("Trancada");
+		fechadura4.setTimerInicio(null);
+		fechadura4.setTimerFim(null);
+		fechadura4.setSenha("42155");
+		fechadura4.setTrancada(true);
+		fechadura4.setAlarme(false);
+		try {
+			System.out.println("Duração agendada do tempo de funcionamento: " + fechadura4.quantidadeHorasAgendada());
+			FechaduraController.incluir(fechadura4);
+		} catch (TamanhoMaximoSenhaException e) {
+			System.out.println("[ERROR - FECHADURA] " + e.getMessage() + "\n");
+		}	
+	}
 }

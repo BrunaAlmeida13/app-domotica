@@ -1,9 +1,11 @@
 package br.edu.infnet.appdomotica.model.domain;
 
+import br.edu.infnet.appdomotica.model.exceptions.TamanhoMaximoSenhaException;
+
 public class Fechadura extends Aparelho {
-	public String senha;
-	public boolean trancada;
-	public boolean alarme;
+	private String senha;
+	private boolean trancada;
+	private boolean alarme;
 
 	@Override
 	public void impressao() {
@@ -12,7 +14,14 @@ public class Fechadura extends Aparelho {
 	}
 
 	@Override
-	public long quantidadeHorasAgendada() {
+	public long quantidadeHorasAgendada() throws TamanhoMaximoSenhaException {
+		int tamanhoMax = 4;
+		int tamanhoSenha = this.senha.length();
+		
+		if(tamanhoSenha > tamanhoMax) {
+			throw new TamanhoMaximoSenhaException("Senha não pode ter mais que 5 caracteres.");
+		}
+		
 		long hours = 0;
 		if (getTimerFim() == null || getTimerInicio() == null) {
 			System.out.println("Função horario de funcionamento desligado");

@@ -6,6 +6,9 @@ import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 import br.edu.infnet.appdomotica.interfaces.IPrinter;
+import br.edu.infnet.appdomotica.model.exceptions.TamanhoMaximoSenhaException;
+import br.edu.infnet.appdomotica.model.exceptions.TemperaturaNaoPodeSerMuitoBaixa;
+import br.edu.infnet.appdomotica.model.exceptions.VolumeSomInvalidoException;
 
 public abstract class Aparelho implements IPrinter {
 	private Integer id;
@@ -14,7 +17,7 @@ public abstract class Aparelho implements IPrinter {
 	private LocalDateTime timerInicio = LocalDateTime.now();
 	private LocalDateTime timerFim = LocalDateTime.now();
 
-	public abstract long quantidadeHorasAgendada();
+	public abstract long quantidadeHorasAgendada() throws VolumeSomInvalidoException, TamanhoMaximoSenhaException, TemperaturaNaoPodeSerMuitoBaixa;
 	
 	/*public long quantidadeHorasAgendada() {
 		long hours = 0;
