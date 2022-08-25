@@ -1,6 +1,7 @@
 package br.edu.infnet.appdomotica.model.domain;
 
 import br.edu.infnet.appdomotica.interfaces.IPrinter;
+import br.edu.infnet.appdomotica.model.exceptions.CpfInvalidoException;
 
 public class Responsavel implements IPrinter {
 	private Integer id;
@@ -9,9 +10,9 @@ public class Responsavel implements IPrinter {
 	private String cpf;
 	private String telefone;
 
-	public Responsavel(String login, String senha, String cpf, String telefone) throws Exception {
-		if(cpf == null) throw new Exception("Não é possível aceitar CPF nulo.");
-		if(cpf.isEmpty()) throw new Exception("Não é póssível aceitar CPF sem preenchimento");
+	public Responsavel(String login, String senha, String cpf, String telefone) throws CpfInvalidoException {
+		if(cpf == null) throw new CpfInvalidoException("Não é possível aceitar CPF nulo.");
+		if(cpf.isEmpty()) throw new CpfInvalidoException("Não é póssível aceitar CPF sem preenchimento");
 		this.cpf = cpf; 
 		this.login = login;
 		this.senha = senha;

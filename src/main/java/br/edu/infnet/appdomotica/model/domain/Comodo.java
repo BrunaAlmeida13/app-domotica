@@ -1,19 +1,34 @@
 package br.edu.infnet.appdomotica.model.domain;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import br.edu.infnet.appdomotica.interfaces.IPrinter;
+import br.edu.infnet.appdomotica.model.exceptions.ComodoSemAparelhosException;
+import br.edu.infnet.appdomotica.model.exceptions.ResponsavelNuloException;
 
 public class Comodo implements IPrinter {
 	private Integer id;
 	private String tipo;
 	private String nome;
-	private Set<Aparelho> listaAparelhos = new HashSet<Aparelho>();
+	private Set<Aparelho> listaAparelhos;
 	private Responsavel responsavel;
 
-	public Comodo(Responsavel responsavel) {
+	public Comodo(Responsavel responsavel, Set<Aparelho> listaAparelhos) throws ResponsavelNuloException, ComodoSemAparelhosException {
+		
+		if(responsavel == null) {
+			throw new ResponsavelNuloException("Não tem como controlar os aparelhos de um cômodo sem um responsável.");
+		}
+		
+		if(listaAparelhos == null) {
+			throw new ComodoSemAparelhosException("Não tem como controlar um cômodo sem uma listagem de aparelhos.");
+		}
+		
+		if(listaAparelhos.size() < 1) {
+			throw new ComodoSemAparelhosException("Não tem como controlar um cômodo sem aparelhos.");
+		}
+		
 		this.responsavel = responsavel;
+		this.listaAparelhos = listaAparelhos;
 	}
 
 	@Override
@@ -36,14 +51,6 @@ public class Comodo implements IPrinter {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public Set<Aparelho> getListaAparelhos() {
-		return listaAparelhos;
-	}
-
-	public void setListaAparelhos(Set<Aparelho> listaAparelhos) {
-		this.listaAparelhos = listaAparelhos;
 	}
 	
 	public Responsavel getResponsavel() {
