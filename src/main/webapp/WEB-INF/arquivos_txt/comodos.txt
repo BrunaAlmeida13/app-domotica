@@ -1,5 +1,3 @@
-teste
-de
-leitura
-de
-arquivo
+Cozinha;Cozinha;responsavel1@email.com;usu1;658487565869;61548467963;
+Quarto;Quarto Nina;responsavel2@email.com;usu2;658482225869;61542227963;
+Quarto;Quarto suite;responsavel3@email.com;usu3;658483335869;61333467963;

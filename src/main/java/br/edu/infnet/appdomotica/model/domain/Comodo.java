@@ -13,20 +13,21 @@ public class Comodo implements IPrinter {
 	private Set<Aparelho> listaAparelhos;
 	private Responsavel responsavel;
 
-	public Comodo(Responsavel responsavel, Set<Aparelho> listaAparelhos) throws ResponsavelNuloException, ComodoSemAparelhosException {
-		
-		if(responsavel == null) {
+	public Comodo(Responsavel responsavel, Set<Aparelho> listaAparelhos)
+			throws ResponsavelNuloException, ComodoSemAparelhosException {
+
+		if (responsavel == null) {
 			throw new ResponsavelNuloException("Não tem como controlar os aparelhos de um cômodo sem um responsável.");
 		}
-		
-		if(listaAparelhos == null) {
+
+		if (listaAparelhos == null) {
 			throw new ComodoSemAparelhosException("Não tem como controlar um cômodo sem uma listagem de aparelhos.");
 		}
-		
-		if(listaAparelhos.size() < 1) {
+
+		if (listaAparelhos.size() < 1) {
 			throw new ComodoSemAparelhosException("Não tem como controlar um cômodo sem aparelhos.");
 		}
-		
+
 		this.responsavel = responsavel;
 		this.listaAparelhos = listaAparelhos;
 	}
@@ -35,6 +36,14 @@ public class Comodo implements IPrinter {
 	public void impressao() {
 		System.out.println("#Fechadura");
 		System.out.println(this);
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getTipo() {
@@ -52,21 +61,21 @@ public class Comodo implements IPrinter {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
+	public Set<Aparelho> getListaAparelhos() {
+		return listaAparelhos;
+	}
+
+	public void setListaAparelhos(Set<Aparelho> listaAparelhos) {
+		this.listaAparelhos = listaAparelhos;
+	}
+
 	public Responsavel getResponsavel() {
 		return responsavel;
 	}
 
 	public void setResponsavel(Responsavel responsavel) {
 		this.responsavel = responsavel;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	@Override

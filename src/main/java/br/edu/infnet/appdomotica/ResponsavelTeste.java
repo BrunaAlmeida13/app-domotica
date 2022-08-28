@@ -1,52 +1,56 @@
 package br.edu.infnet.appdomotica;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appdomotica.controller.ResponsavelAparelhosController;
+import br.edu.infnet.appdomotica.controller.ResponsavelController;
 import br.edu.infnet.appdomotica.model.domain.Responsavel;
 import br.edu.infnet.appdomotica.model.exceptions.CpfInvalidoException;
 
 @Component
-public class ResponsavelTeste implements ApplicationRunner{
+public class ResponsavelTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) {
-		
+
+		String dir = "C:\\Users\\bruna\\OneDrive\\Área de Trabalho\\EclipeEE_Workspace\\appdomotica\\src\\main\\webapp\\WEB-INF\\arquivos_txt\\";
+		String arq = "responsavel.txt";
+
 		try {
-			Responsavel resp1 = new Responsavel("responsavel1@email.com", "usu1", "658487891269", "61456987263");
-			ResponsavelAparelhosController.incluir(resp1);
-		} catch (CpfInvalidoException e) {
-			System.out.println("[ERROR - RESPONSAVEL] " + e.getMessage() + "\n");
-		}
-		
-		try {
-			Responsavel resp2 = new Responsavel("responsavel2@email.com", "usu2", "658484578969", "61547548263");
-			ResponsavelAparelhosController.incluir(resp2);
-		} catch (CpfInvalidoException e) {
-			System.out.println("[ERROR - RESPONSAVEL] " + e.getMessage() + "\n");
-		}
-		
-		try {
-			Responsavel resp3 = new Responsavel("responsavel3@email.com", "usu3", "658487565869", "61548467963");
-			ResponsavelAparelhosController.incluir(resp3);
-		} catch (CpfInvalidoException e) {
-			System.out.println("[ERROR - RESPONSAVEL] " + e.getMessage() + "\n");
-		}
-		
-		try {
-			Responsavel resp4 = new Responsavel("responsavel4@email.com", "usu4", null, "61548447963");
-			ResponsavelAparelhosController.incluir(resp4);
-		} catch (CpfInvalidoException e) {
-			System.out.println("[ERROR - RESPONSAVEL] " + e.getMessage() + "\n");
-		}
-		
-		try {
-			Responsavel resp5 = new Responsavel("responsavel5@email.com", "usu5", "", "61548465963");
-			ResponsavelAparelhosController.incluir(resp5);
-		} catch (CpfInvalidoException e) {
-			System.out.println("[ERROR - RESPONSAVEL] " + e.getMessage() + "\n");
+			try {
+				FileReader fileReader = new FileReader(dir + arq);
+				BufferedReader leitura = new BufferedReader(fileReader);
+
+				String linha = leitura.readLine();
+				while (linha != null) {
+					
+					String[] campos = linha.split(";");
+					
+					try {
+						Responsavel resp1 = new Responsavel(campos[0], campos[1], campos[2], campos[3]);
+						ResponsavelController.incluir(resp1);
+					} catch (CpfInvalidoException e) {
+						System.out.println("[ERROR - RESPONSAVEL] " + e.getMessage() + "\n");
+					}
+
+					linha = leitura.readLine();
+				}
+
+				leitura.close();
+				fileReader.close();
+			} catch (FileNotFoundException e) {
+				System.out.println("[ERRO] O arquivo não existe!");
+			} catch (IOException e) {
+				System.out.println("[ERRO] Problema no fechamento do arquivo!");
+			}
+		} finally {
+			System.out.println("Finalizado.");
 		}
 	}
 }

@@ -11,9 +11,11 @@ public class Responsavel implements IPrinter {
 	private String telefone;
 
 	public Responsavel(String login, String senha, String cpf, String telefone) throws CpfInvalidoException {
-		if(cpf == null) throw new CpfInvalidoException("Não é possível aceitar CPF nulo.");
-		if(cpf.isEmpty()) throw new CpfInvalidoException("Não é póssível aceitar CPF sem preenchimento");
-		this.cpf = cpf; 
+		if (cpf == null)
+			throw new CpfInvalidoException("Não é possível aceitar CPF nulo.");
+		if (cpf.isEmpty())
+			throw new CpfInvalidoException("Não é póssível aceitar CPF sem preenchimento");
+		this.cpf = cpf;
 		this.login = login;
 		this.senha = senha;
 		this.telefone = telefone;
@@ -23,6 +25,14 @@ public class Responsavel implements IPrinter {
 	public void impressao() {
 		System.out.println("#Responsavel");
 		System.out.println(this);
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getLogin() {
@@ -55,14 +65,6 @@ public class Responsavel implements IPrinter {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	@Override

@@ -1,8 +1,6 @@
 package br.edu.infnet.appdomotica.model.domain;
 
-import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 import br.edu.infnet.appdomotica.interfaces.IPrinter;
@@ -17,17 +15,16 @@ public abstract class Aparelho implements IPrinter {
 	private LocalDateTime timerInicio = LocalDateTime.now();
 	private LocalDateTime timerFim = LocalDateTime.now();
 
-	public abstract long quantidadeHorasAgendada() throws VolumeSomInvalidoException, TamanhoMaximoSenhaException, TemperaturaNaoPodeSerMuitoBaixa;
-	
-	/*public long quantidadeHorasAgendada() {
-		long hours = 0;
-		if (timerFim == null || timerInicio == null) {
-			System.out.println("Função horario de funcionamento desligado");
-		} else {
-			hours = timerFim.getHour() - timerInicio.getHour();
-		}
-		return hours;
-	}*/
+	public abstract long quantidadeHorasAgendada()
+			throws VolumeSomInvalidoException, TamanhoMaximoSenhaException, TemperaturaNaoPodeSerMuitoBaixa;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getNome() {
 		return nome;
@@ -60,15 +57,7 @@ public abstract class Aparelho implements IPrinter {
 	public void setTimerFim(LocalDateTime timerFim) {
 		this.timerFim = timerFim;
 	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(nome);
