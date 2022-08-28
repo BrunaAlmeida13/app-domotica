@@ -3,10 +3,10 @@ package br.edu.infnet.appdomotica.model.domain;
 import br.edu.infnet.appdomotica.model.exceptions.VolumeSomInvalidoException;
 
 public class Luz extends Aparelho {
-	public String cor;
-	public int intensidade;
-	public int volumeSom;
-	public boolean power;
+	private String cor;
+	private int intensidade;
+	private int volumeSom;
+	private boolean power;
 
 	@Override
 	public void impressao() {

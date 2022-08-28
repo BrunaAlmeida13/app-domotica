@@ -3,9 +3,9 @@ package br.edu.infnet.appdomotica.model.domain;
 import br.edu.infnet.appdomotica.model.exceptions.TemperaturaNaoPodeSerMuitoBaixa;
 
 public class ArCondicionado extends Aparelho {
-	public double temperatura;
-	public boolean ventilacao;
-	public boolean power;
+	private double temperatura;
+	private boolean ventilacao;
+	private boolean power;
 
 	@Override
 	public void impressao() {
