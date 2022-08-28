@@ -91,8 +91,6 @@ public class ComodoTeste implements ApplicationRunner {
 		ac3.setVentilacao(true);
 		ac3.setPower(true);	
 		
-		//Erro ao colocar 3 exceptions em um mesmo catch
-		
 		try {
 			Set<Aparelho> listaAparelhos1 = new HashSet<Aparelho>();
 			listaAparelhos1.add(luz1);
@@ -104,9 +102,7 @@ public class ComodoTeste implements ApplicationRunner {
 			comodo1.setTipo("Quarto");
 			comodo1.setNome("Quarto da Nina");
 			ComodoController.incluir(comodo1);
-		}  catch (CpfInvalidoException | ResponsavelNuloException e) {
-			System.out.println("[ERROR - COMODO] " + (e.getMessage() + "\n"));
-		} catch (ComodoSemAparelhosException e) {
+		}  catch (CpfInvalidoException | ResponsavelNuloException | ComodoSemAparelhosException e) {
 			System.out.println("[ERROR - COMODO] " + (e.getMessage() + "\n"));
 		}
 		
@@ -121,9 +117,7 @@ public class ComodoTeste implements ApplicationRunner {
 			comodo2.setTipo("Quarto");
 			comodo2.setNome("Quarto Suíte");
 			ComodoController.incluir(comodo2);
-		} catch (CpfInvalidoException | ResponsavelNuloException e) {
-			System.out.println("[ERROR - COMODO] " + (e.getMessage() + "\n"));
-		} catch (ComodoSemAparelhosException e) {
+		} catch (CpfInvalidoException | ResponsavelNuloException | ComodoSemAparelhosException  e) {
 			System.out.println("[ERROR - COMODO] " + (e.getMessage() + "\n"));
 		}
 		
@@ -139,11 +133,9 @@ public class ComodoTeste implements ApplicationRunner {
 			comodo3.setTipo("Cozinha");
 			comodo3.setNome("Cozinha");
 			ComodoController.incluir(comodo3);
-		} catch (CpfInvalidoException | ResponsavelNuloException e) {
+		} catch (CpfInvalidoException | ResponsavelNuloException | ComodoSemAparelhosException  e) {
 			System.out.println("[ERROR - COMODO] " + (e.getMessage() + "\n"));
-		} catch (ComodoSemAparelhosException e) {
-			System.out.println("[ERROR - COMODO] " + (e.getMessage() + "\n"));
-		}
+		} 
 		
 		try {
 			Set<Aparelho> listaAparelhos4 = new HashSet<Aparelho>();
@@ -157,11 +149,9 @@ public class ComodoTeste implements ApplicationRunner {
 			comodo4.setTipo("Sala");
 			comodo4.setNome("Sala");
 			ComodoController.incluir(comodo4);
-		} catch (CpfInvalidoException | ResponsavelNuloException e) {
+		} catch (CpfInvalidoException | ResponsavelNuloException | ComodoSemAparelhosException  e) {
 			System.out.println("[ERROR - COMODO] " + (e.getMessage() + "\n"));
-		} catch (ComodoSemAparelhosException e) {
-			System.out.println("[ERROR - COMODO] " + (e.getMessage() + "\n"));
-		}
+		} 
 		
 		try {
 			Set<Aparelho> listaAparelhos5 = new HashSet<Aparelho>();
@@ -175,11 +165,9 @@ public class ComodoTeste implements ApplicationRunner {
 			comodo5.setTipo("Garagem");
 			comodo5.setNome("Garagem");
 			ComodoController.incluir(comodo5);
-		} catch (CpfInvalidoException | ResponsavelNuloException e) {
+		} catch (CpfInvalidoException | ResponsavelNuloException | ComodoSemAparelhosException  e) {
 			System.out.println("[ERROR - COMODO] " + (e.getMessage() + "\n"));
-		} catch (ComodoSemAparelhosException e) {
-			System.out.println("[ERROR - COMODO] " + (e.getMessage() + "\n"));
-		}
+		} 
 		
 		try {
 			Set<Aparelho> listaAparelhos6 = null;
@@ -190,10 +178,8 @@ public class ComodoTeste implements ApplicationRunner {
 			comodo6.setTipo("Garagem 2");
 			comodo6.setNome("Garagem 2");
 			ComodoController.incluir(comodo6);
-		} catch (CpfInvalidoException | ResponsavelNuloException e) {
+		} catch (CpfInvalidoException | ResponsavelNuloException | ComodoSemAparelhosException  e) {
 			System.out.println("[ERROR - COMODO] " + (e.getMessage() + "\n"));
-		} catch (ComodoSemAparelhosException e) {
-			System.out.println("[ERROR - COMODO] " + (e.getMessage() + "\n"));
-		}
+		} 
 	}
 }
