@@ -19,6 +19,7 @@
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
 				<c:if test="${not empty user}">
+				<li class="nav-item"><a class="nav-link" href="/morador/lista">Moradores</a></li>
 				<li class="nav-item"><a class="nav-link" href="/comodo/lista">Comodo</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="/responsavel/lista">Responsavel</a></li>
