@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,21 +14,7 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-sm bg-secondary navbar-light">
-		<div class="container-fluid">
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="/comodo/lista">Comodo</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/responsavel/lista">Responsavel</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/arcondicionado/lista">ArCondicionado</a></li>
-				<li class="nav-item"><a class="nav-link" href="/luz/lista">Luz</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/fechadura/lista">Fechadura</a></li>
-			</ul>
-		</div>
-	</nav>
+	<c:import url="/WEB-INF/jsp/menu.jsp" />
 
 	<div class="container mt-3">
 		<h2>Cadastro de morador</h2>

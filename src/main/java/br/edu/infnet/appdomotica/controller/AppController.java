@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import br.edu.infnet.appdomotica.model.domain.Morador;
+
 @Controller
 public class AppController {
 	
@@ -21,12 +23,12 @@ public class AppController {
 	
 	@PostMapping(value = "/login")
 	public String login(Model model, @RequestParam String email, @RequestParam String senha) {
-		if(email.equalsIgnoreCase(senha)) {
+		
+		Morador morador = MoradorController.validar(email, senha);
+		
+		if(morador != null) {
 			
-			
-			String nome = email;
-			
-			model.addAttribute("user", nome);
+			model.addAttribute("user", morador.getNome());
 			
 			return "home";
 		}	

@@ -14,21 +14,8 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-sm bg-secondary navbar-light">
-		<div class="container-fluid">
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="/comodo/lista">Comodo</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/responsavel/lista">Responsavel</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/arcondicionado/lista">ArCondicionado</a></li>
-				<li class="nav-item"><a class="nav-link" href="/luz/lista">Luz</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/fechadura/lista">Fechadura</a></li>
-			</ul>
-		</div>
-	</nav>
+	<c:import url="/WEB-INF/jsp/menu.jsp" />
+
 	<br>
 	<div class="container mt-3">
 		<h3>Classe: Fechadura estende Aparelho</h3>
