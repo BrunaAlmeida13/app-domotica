@@ -17,7 +17,9 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp" />
 
 	<div class="container mt-3">
+	
 		<h2>Cadastro de morador</h2>
+		
 		<form action="/morador/incluir" method="post">
 			<div class="mb-3 mt-3">
 				<label>Nome</label> <input type="text" class="form-control"

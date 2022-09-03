@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.appdomotica.model.AppImpressao;
 import br.edu.infnet.appdomotica.model.domain.Morador;
@@ -43,5 +44,18 @@ public class MoradorController {
 		model.addAttribute("listagem", obterLista());
 
 		return "morador/lista";
+	}
+
+	@GetMapping(value = "/morador")
+	public String telaCadastro() {
+		return "morador/cadastro";
+	}
+
+	@PostMapping(value = "/morador/incluir")
+	public String inclusao(Morador morador) {
+		
+		incluir(morador);
+
+		return "redirect:/";
 	}
 }

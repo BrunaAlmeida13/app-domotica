@@ -21,7 +21,7 @@
 
 		<ul class="navbar-nav">
 			<c:if test="${empty user}">
-				<li class="nav-item"><a class="nav-link" href="#"><span
+				<li class="nav-item"><a class="nav-link" href="/morador"><span
 						class="glyphicon glyphicon-user"></span>Signup</a></li>
 				<li class="nav-item"><a class="nav-link" href="/login"><span
 						class="glyphicon glyphicon-log-in"></span>Login</a></li>
