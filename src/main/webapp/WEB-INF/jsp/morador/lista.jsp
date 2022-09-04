@@ -25,6 +25,7 @@
 					<th scope="col">Nome</th>
 					<th scope="col">E-mail</th>
 					<th scope="col">Senha</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,6 +34,7 @@
 						<td>${m.nome}</td>
 						<td>${m.email}</td>
 						<td>${m.senha}</td>
+						<td><a href="/morador/${m.email}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

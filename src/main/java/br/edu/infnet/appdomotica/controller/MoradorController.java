@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.appdomotica.model.AppImpressao;
@@ -33,6 +34,10 @@ public class MoradorController {
 
 		AppImpressao.relatorio("Inclusão do morador '" + morador.getNome() + "'", morador);
 	}
+	
+	public static void excluir(String email) {
+		mapaMorador.remove(email);
+	}
 
 	public static Collection<Morador> obterLista() {
 		return mapaMorador.values();
@@ -57,5 +62,13 @@ public class MoradorController {
 		incluir(morador);
 
 		return "redirect:/";
+	}
+	
+	@GetMapping(value = "/morador/{email}/excluir")
+	public String exclusao(@PathVariable String email) {
+		
+		excluir(email);
+
+		return "redirect:/morador/lista";
 	}
 }
