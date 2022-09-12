@@ -24,20 +24,18 @@ public class LuzController {
 		return "luz/lista";
 	}
 
-	//TODO implementar cadastro
-	@PostMapping(value = "/luz/incluir")
-	public String inclusao(Luz luz) {
-
-		luzService.incluir(luz);
-
+	@GetMapping(value = "/luz/incluir")
+	public String telaCadastro() {
 		return "luz/cadastro";
 	}
 
-	/*@GetMapping(value = "/luz/cadastrar")
-	public String cadastrar(Luz luz) {
-		incluir(luz);
-		return "/luz/cadastro";
-	}*/
+	@PostMapping(value = "/luz/incluir")
+	public String incluir(Luz luz) {
+
+		luzService.incluir(luz);
+
+		return "redirect:/luz/lista";
+	}
 
 	@GetMapping(value = "/luz/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {

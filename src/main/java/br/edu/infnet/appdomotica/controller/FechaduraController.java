@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import br.edu.infnet.appdomotica.model.domain.Fechadura;
 import br.edu.infnet.appdomotica.model.service.FechaduraService;
 
 @Controller
@@ -21,6 +23,19 @@ public class FechaduraController {
 		
 		return "fechadura/lista";
 	}
+	
+	@GetMapping(value = "/fechadura/incluir")
+	public String telaCadastro() {
+		return "fechadura/cadastro";
+	}
+
+	@PostMapping(value = "/fechadura/incluir")
+	public String incluir(Fechadura fechadura) {
+
+		fechaduraService.incluir(fechadura);
+
+		return "redirect:/fechadura/lista";
+	}
 		
 	@GetMapping(value = "/fechadura/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
@@ -28,6 +43,4 @@ public class FechaduraController {
 		
 		return "redirect:/fechadura/lista";
 	}
-	
-	// TODO tela de cadastro e rota
 }

@@ -49,6 +49,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<a class="nav-link"	href="/arCondicionado/incluir">Cadastrar um Ar Condicionado</a>
 	</div>
 </body>
 </html>

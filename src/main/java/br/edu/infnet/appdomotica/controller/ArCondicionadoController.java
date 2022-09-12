@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import br.edu.infnet.appdomotica.model.domain.ArCondicionado;
 import br.edu.infnet.appdomotica.model.service.ArCondicionadoService;
 
 @Controller
@@ -20,6 +22,19 @@ public class ArCondicionadoController {
 		model.addAttribute("listagem", arCondicionadoService.obterLista());
 		
 		return "arCondicionado/lista";
+	}
+	
+	@GetMapping(value = "/arCondicionado/incluir")
+	public String telaCadastro() {
+		return "arCondicionado/cadastro";
+	}
+
+	@PostMapping(value = "/arCondicionado/incluir")
+	public String incluir(ArCondicionado arCondicionado) {
+
+		arCondicionadoService.incluir(arCondicionado);
+
+		return "redirect:/arCondicionado/lista";
 	}
 	
 	@GetMapping(value = "/arcondicionado/{id}/excluir")

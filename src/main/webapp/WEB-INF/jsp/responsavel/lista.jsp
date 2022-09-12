@@ -43,7 +43,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-
+		<a class="nav-link" href="/responsavel/incluir">Cadastrar um responsável</a>
 	</div>
 </body>
 
