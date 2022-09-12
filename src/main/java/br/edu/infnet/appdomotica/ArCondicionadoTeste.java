@@ -6,21 +6,23 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appdomotica.controller.ArCondicionadoController;
 import br.edu.infnet.appdomotica.model.domain.ArCondicionado;
 import br.edu.infnet.appdomotica.model.exceptions.TemperaturaNaoPodeSerMuitoBaixa;
+import br.edu.infnet.appdomotica.model.service.ArCondicionadoService;
 
 @Component
 public class ArCondicionadoTeste implements ApplicationRunner {
 
+	@Autowired
+	private ArCondicionadoService arCondicionadoService;
+	
 	@Override
 	public void run(ApplicationArguments args) {
-		
-		
 		
 		String dir = "C:\\Users\\bruna\\OneDrive\\Área de Trabalho\\EclipeEE_Workspace\\appdomotica\\src\\main\\webapp\\WEB-INF\\arquivos_txt\\";
 		String arq = "arCondicionado.txt";
@@ -46,7 +48,7 @@ public class ArCondicionadoTeste implements ApplicationRunner {
 						ac1.setPower(Boolean.valueOf(campos[6]));
 						
 						System.out.println("Duração agendada do tempo de funcionamento: " + ac1.quantidadeHorasAgendada());
-						ArCondicionadoController.incluir(ac1);
+						arCondicionadoService.incluir(ac1);
 					} catch (TemperaturaNaoPodeSerMuitoBaixa e) {
 						System.out.println("[ERROR - A.C] " + e.getMessage() + "\n");
 					}

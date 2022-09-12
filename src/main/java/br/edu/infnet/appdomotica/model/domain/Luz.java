@@ -13,24 +13,26 @@ public class Luz extends Aparelho {
 		System.out.println("#Luz");
 		System.out.println(this);
 	}
-	
+
 	@Override
 	public long quantidadeHorasAgendada() throws VolumeSomInvalidoException {
-		
-		if(this.getVolumeSom() < 0 || this.getVolumeSom() > 100) {
-			throw new VolumeSomInvalidoException("Volume: " + this.getVolumeSom() + ". O volume não pode ser menor que 0 ou maior que 100!");
+
+		if (this.getVolumeSom() < 0 || this.getVolumeSom() > 100) {
+			throw new VolumeSomInvalidoException(
+					"Volume: " + this.getVolumeSom() + ". O volume não pode ser menor que 0 ou maior que 100!");
 		}
-		
+
 		long hours = 0;
 		if (getTimerFim() == null || getTimerInicio() == null) {
 			System.out.println("Função horario de funcionamento desligado");
 		} else {
 			hours = getTimerFim().getHour() - getTimerInicio().getHour();
 			boolean tempoMaximo = hours >= 11;
-				if(tempoMaximo) {
-					this.power = false;
-					this.volumeSom = 0;
-				}
+			if (tempoMaximo) {
+				this.power = false;
+				this.volumeSom = 0;
+				this.setStatus("Desligada");
+			}
 		}
 		return hours;
 	}

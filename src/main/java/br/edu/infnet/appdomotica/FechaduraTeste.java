@@ -6,16 +6,20 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appdomotica.controller.FechaduraController;
 import br.edu.infnet.appdomotica.model.domain.Fechadura;
 import br.edu.infnet.appdomotica.model.exceptions.TamanhoMaximoSenhaException;
+import br.edu.infnet.appdomotica.model.service.FechaduraService;
 
 @Component
 public class FechaduraTeste implements ApplicationRunner {
+	
+	@Autowired
+	private FechaduraService fechaduraService;
 	
 	@Override
 	public void run(ApplicationArguments args) {
@@ -44,7 +48,7 @@ public class FechaduraTeste implements ApplicationRunner {
 					
 					try {
 						System.out.println("Duração agendada do tempo de funcionamento: " + fechadura1.quantidadeHorasAgendada());
-						FechaduraController.incluir(fechadura1);
+						fechaduraService.incluir(fechadura1);
 					} catch (TamanhoMaximoSenhaException e) {
 						System.out.println("[ERROR - FECHADURA] " + e.getMessage() + "\n");
 					}

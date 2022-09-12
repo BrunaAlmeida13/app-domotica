@@ -7,11 +7,11 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appdomotica.controller.ComodoController;
 import br.edu.infnet.appdomotica.model.domain.Aparelho;
 import br.edu.infnet.appdomotica.model.domain.ArCondicionado;
 import br.edu.infnet.appdomotica.model.domain.Comodo;
@@ -21,10 +21,14 @@ import br.edu.infnet.appdomotica.model.domain.Responsavel;
 import br.edu.infnet.appdomotica.model.exceptions.ComodoSemAparelhosException;
 import br.edu.infnet.appdomotica.model.exceptions.CpfInvalidoException;
 import br.edu.infnet.appdomotica.model.exceptions.ResponsavelNuloException;
+import br.edu.infnet.appdomotica.model.service.ComodoService;
 
 @Component
 public class ComodoTeste implements ApplicationRunner {
 
+	@Autowired
+	private ComodoService comodoService;
+	
 	@Override
 	public void run(ApplicationArguments args) {
 		
@@ -80,7 +84,7 @@ public class ComodoTeste implements ApplicationRunner {
 						Comodo comodo1 = new Comodo(resp1, listaAparelhos1);
 						comodo1.setTipo(campos[0]);
 						comodo1.setNome(campos[1]);
-						ComodoController.incluir(comodo1);
+						comodoService.incluir(comodo1);
 					} catch (CpfInvalidoException | ResponsavelNuloException | ComodoSemAparelhosException  e) {
 						System.out.println("[ERROR - COMODO] " + (e.getMessage() + "\n"));
 					} 

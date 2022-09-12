@@ -51,7 +51,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<a class="nav-link"	href="/luz/cadastrar">Cadastrar uma luz</a>
+		<a class="nav-link"	href="/luz/incluir">Cadastrar uma luz</a>
 		<br>
 	</div>
 </body>

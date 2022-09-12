@@ -22,12 +22,25 @@
 
 		<form action="/luz/incluir" method="post">
 			<div class="mb-3 mt-3">
+				<label>Nome</label> <input type="text" class="form-control"
+					name="nome">
+			</div>
+			<div>
+				<label>Timer Início:</label> <input type="date"
+					name="dateTimerInicio"> <input type="time"
+					name="timeTimerInicio">
+			</div>
+			<br>
+			<div>
+				<label>Timer Fim:</label> <input type="date" name="dateTimerFim">
+				<input type="time" name="timeTimerFim">
+			</div>
+			<div class="mb-3 mt-3">
 				<label>Cor</label> <input type="text" class="form-control"
 					name="cor">
 			</div>
 			<div class="mb-3 mt-3">
-				<label for="intensidade">Intensidade</label> <select
-					name="intensidade">
+				<label>Intensidade</label> <select name="intensidade">
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -35,11 +48,11 @@
 				</select>
 			</div>
 			<div class="mb-3">
-				<label for="volumeSom">Volume do Som</label> <input type="number"
+				<label>Volume do Som</label> <input type="number"
 					class="form-control" min="0" max="100" name="volumeSom">
 			</div>
 			<div class="mb-3">
-				<label for="power">Power</label> <select name="power">
+				<label>Power</label> <select name="power">
 					<option value="1">Ligada</option>
 					<option value="0">Desligada</option>
 				</select>

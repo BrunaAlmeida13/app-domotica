@@ -6,17 +6,21 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appdomotica.controller.LuzController;
 import br.edu.infnet.appdomotica.model.domain.Luz;
 import br.edu.infnet.appdomotica.model.exceptions.VolumeSomInvalidoException;
+import br.edu.infnet.appdomotica.model.service.LuzService;
 
 @Component
 public class LuzTeste implements ApplicationRunner {
 
+	@Autowired
+	private LuzService luzService;	
+	
 	@Override
 	public void run(ApplicationArguments args) {
 		String dir = "C:\\Users\\bruna\\OneDrive\\Área de Trabalho\\EclipeEE_Workspace\\appdomotica\\src\\main\\webapp\\WEB-INF\\arquivos_txt\\";
@@ -43,7 +47,7 @@ public class LuzTeste implements ApplicationRunner {
 					luz1.setPower(Boolean.valueOf(campos[7]));
 					try {
 						System.out.println("Duração agendada do tempo de funcionamento: " + luz1.quantidadeHorasAgendada());
-						LuzController.incluir(luz1);
+						luzService.incluir(luz1);
 					} catch (VolumeSomInvalidoException e) {
 						System.out.println("[ERROR - LUZ] " + e.getMessage() + "\n");
 					}
