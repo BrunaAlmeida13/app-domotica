@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.client.HttpServerErrorException;
 
+import br.edu.infnet.appdomotica.model.AppImpressao;
 import br.edu.infnet.appdomotica.model.domain.Morador;
+import br.edu.infnet.appdomotica.model.domain.app.Projeto;
+import br.edu.infnet.appdomotica.model.service.AppService;
 import br.edu.infnet.appdomotica.model.service.MoradorService;
 
 @SessionAttributes("user")
@@ -22,8 +24,14 @@ public class AppController {
 	@Autowired
 	private MoradorService moradorService;
 	
+	@Autowired
+	private AppService appService;
+	
 	@GetMapping(value = "/")
-	public String telaHome() {
+	public String telaHome(Model model) {
+		
+		model.addAttribute("projeto", appService.obterProjeto());
+		
 		return "home";
 	}
 	

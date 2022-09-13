@@ -1,6 +1,8 @@
 package br.edu.infnet.appdomotica.model.domain.app;
 
-public class Atributo {
+import br.edu.infnet.appdomotica.interfaces.IPrinter;
+
+public class Atributo implements IPrinter {
 	
 	private String nome;
 	private String tipo;
@@ -35,5 +37,15 @@ public class Atributo {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s %s: %s", tipo, nome, descricao);
+	}
+
+	@Override
+	public void impressao() {
+		System.out.println("###" + this);
 	}
 }

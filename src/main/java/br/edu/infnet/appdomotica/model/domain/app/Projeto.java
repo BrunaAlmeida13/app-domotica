@@ -2,7 +2,9 @@ package br.edu.infnet.appdomotica.model.domain.app;
 
 import java.util.List;
 
-public class Projeto {
+import br.edu.infnet.appdomotica.interfaces.IPrinter;
+
+public class Projeto implements IPrinter {
 
 	private String nome;
 	private String descricao;
@@ -30,5 +32,13 @@ public class Projeto {
 
 	public void setClasses(List<Classe> classes) {
 		this.classes = classes;
+	}
+
+	@Override
+	public void impressao() {
+		System.out.println("#" + nome + " | " + descricao);
+		for(Classe c : classes) {
+			c.impressao();
+		}
 	}
 }

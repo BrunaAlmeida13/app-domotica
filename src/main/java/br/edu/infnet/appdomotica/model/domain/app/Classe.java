@@ -2,7 +2,9 @@ package br.edu.infnet.appdomotica.model.domain.app;
 
 import java.util.List;
 
-public class Classe {
+import br.edu.infnet.appdomotica.interfaces.IPrinter;
+
+public class Classe implements IPrinter {
 
 	private String nome;
 	private List<Atributo> atributos;
@@ -21,6 +23,14 @@ public class Classe {
 
 	public void setAtributos(List<Atributo> atributos) {
 		this.atributos = atributos;
+	}
+
+	@Override
+	public void impressao() {
+		System.out.println("##" + nome);
+		for(Atributo a : atributos) {
+			a.impressao();
+		}
 	}
 
 }
