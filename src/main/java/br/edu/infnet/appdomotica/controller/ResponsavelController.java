@@ -24,7 +24,7 @@ public class ResponsavelController {
 		return "responsavel/lista";
 	}
 
-	@GetMapping(value = "/responsavel/incluir")
+	@GetMapping(value = "/responsavel")
 	public String telaCadastro() {
 		return "responsavel/cadastro";
 	}

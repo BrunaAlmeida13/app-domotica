@@ -31,7 +31,7 @@
 			</div>
 			<div class="mb-3 mt-3">
 				<label>CPF</label> <input type="text" class="form-control"
-					name="cpf">
+					name="cpf" required>
 			</div>
 			<div class="mb-3 mt-3">
 				<label>Telefone</label> <input type="text" class="form-control"

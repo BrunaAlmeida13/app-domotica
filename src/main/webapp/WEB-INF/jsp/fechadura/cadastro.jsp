@@ -21,20 +21,9 @@
 		<h2>Cadastro da fechadura</h2>
 
 		<form action="/fechadura/incluir" method="post">
-			<div class="mb-3 mt-3">
-				<label>Nome</label> <input type="text" class="form-control"
-					name="nome">
-			</div>
-			<div>
-				<label>Timer Início:</label> <input type="date"
-					name="dateTimerInicio"> <input type="time"
-					name="timeTimerInicio">
-			</div>
-			<br>
-			<div>
-				<label>Timer Fim:</label> <input type="date" name="dateTimerFim">
-				<input type="time" name="timeTimerFim">
-			</div>
+
+			<c:import url="/WEB-INF/jsp/aparelho/cadastro.jsp" />
+
 			<div class="mb-3 mt-3">
 				<label>senha</label> <input type="password" class="form-control"
 					name="senha">

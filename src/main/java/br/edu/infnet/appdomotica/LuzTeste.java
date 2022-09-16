@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -39,8 +40,8 @@ public class LuzTeste implements ApplicationRunner {
 					Luz luz1 = new Luz();
 					luz1.setNome(campos[0]);
 					luz1.setStatus(campos[1]);
-					luz1.setTimerInicio(LocalDateTime.parse(campos[2]));
-					luz1.setTimerFim(LocalDateTime.parse(campos[3]));
+					luz1.setTimerInicio(LocalDateTime.parse(campos[2], DateTimeFormatter.ISO_DATE_TIME)); //TODO fazer conversão data e hora
+					luz1.setTimerFim(LocalDateTime.parse(campos[3], DateTimeFormatter.ISO_DATE_TIME));
 					luz1.setCor(campos[4]);
 					luz1.setIntensidade(Integer.valueOf(campos[5]));
 					luz1.setVolumeSom(Integer.valueOf(campos[6]));
