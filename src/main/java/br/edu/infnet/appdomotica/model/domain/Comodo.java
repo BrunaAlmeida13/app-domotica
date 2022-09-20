@@ -20,13 +20,13 @@ public class Comodo implements IPrinter {
 			throw new ResponsavelNuloException("Não tem como controlar os aparelhos de um cômodo sem um responsável.");
 		}
 
-		if (listaAparelhos == null) {
+		/*if (listaAparelhos == null) {
 			throw new ComodoSemAparelhosException("Não tem como controlar um cômodo sem uma listagem de aparelhos.");
 		}
 
 		if (listaAparelhos.size() < 1) {
 			throw new ComodoSemAparelhosException("Não tem como controlar um cômodo sem aparelhos.");
-		}
+		}*/
 
 		this.responsavel = responsavel;
 		this.listaAparelhos = listaAparelhos;
