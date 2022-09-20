@@ -18,7 +18,7 @@
 
 	<div class="container mt-3">
 
-		<h2>Cadastro de um cômodo</h2>
+		<h2>Cadastro de cômodo</h2>
 
 		<form action="/comodo/incluir" method="post">
 			<div class="mb-3 mt-3">
@@ -30,16 +30,18 @@
 					name="nome">
 			</div>
 			<div class="mb-3 mt-3">
-				<label>Aparelhos</label> <select name="listaAparelhos">
-					<option value="luz">Luz</option>
-					<option value="arCondicionado">Ar Condicionado</option>
-					<option value="fechadura">Fechadura</option>
-				</select>
+				<label>Aparelhos</label>
+				<c:forEach var="a" items="${aparelhos}">
+					<div>
+						<label><input type="checkbox" value=""> ${a.nome}</label><br>
+					</div>
+				</c:forEach>
 			</div>
 			<div class="mb-3 mt-3">
-				<label>Responsável</label> <select name="responsavel">
-					<option value="responsavel1">Responsavel1</option>
-					<option value="responsavel2">Responsavel2</option>
+				<label>Responsável</label> <select>
+					<c:forEach var="r" items="${responsaveis}">
+						<option value="luz">${r.login}</option>
+					</c:forEach>
 				</select>
 			</div>
 			<br>

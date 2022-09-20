@@ -43,7 +43,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<a class="nav-link"	href="/comodo/incluir">Cadastrar um cômodo</a>
+		<a class="nav-link"	href="/comodo">Cadastrar um cômodo</a>
 	</div>
 </body>
 

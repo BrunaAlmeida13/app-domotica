@@ -8,13 +8,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.appdomotica.model.domain.Comodo;
+import br.edu.infnet.appdomotica.model.service.AparelhoService;
 import br.edu.infnet.appdomotica.model.service.ComodoService;
+import br.edu.infnet.appdomotica.model.service.ResponsavelService;
 
 @Controller
 public class ComodoController {
 
 	@Autowired
 	private ComodoService comodoService;
+	
+	@Autowired
+	private ResponsavelService responsavelService;
+	
+	@Autowired
+	private AparelhoService aparelhoService;
 	
 	@GetMapping(value = "/comodo/lista")
 	public String telaLista(Model model) {
@@ -24,15 +32,19 @@ public class ComodoController {
 		return "comodo/lista";
 	}
 	
-	@GetMapping(value = "/comodo/incluir")
-	public String telaCadastro() {
+	@GetMapping(value = "/comodo")
+	public String telaCadastro(Model model) {
+		
+		model.addAttribute("aparelhos", aparelhoService.obterLista());
+		model.addAttribute("responsaveis", responsavelService.obterLista());
+		
 		return "comodo/cadastro";
 	}
 
 	@PostMapping(value = "/comodo/incluir")
-	public String incluir(Comodo comodo) {
+	public String incluir() {
 
-		comodoService.incluir(comodo);
+		//comodoService.incluir(comodo);
 
 		return "redirect:/comodo/lista";
 	}
