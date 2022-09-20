@@ -20,42 +20,46 @@ import br.edu.infnet.appdomotica.model.service.LuzService;
 public class LuzTeste implements ApplicationRunner {
 
 	@Autowired
-	private LuzService luzService;	
-	
+	private LuzService luzService;
+
 	@Override
 	public void run(ApplicationArguments args) {
 		String dir = "C:\\Users\\bruna\\OneDrive\\Área de Trabalho\\EclipeEE_Workspace\\appdomotica\\src\\main\\webapp\\WEB-INF\\arquivos_txt\\";
-		String arq = "luz.txt";
-		
+		String arq = "aparelho.txt";
+
 		try {
 			try {
 				FileReader fileReader = new FileReader(dir + arq);
 				BufferedReader leitura = new BufferedReader(fileReader);
-				
+
 				String linha = leitura.readLine();
-				while(linha != null) {
-					
+				while (linha != null) {
+
 					String[] campos = linha.split(";");
-					
-					Luz luz1 = new Luz();
-					luz1.setNome(campos[0]);
-					luz1.setStatus(campos[1]);
-					luz1.setTimerInicio(LocalDateTime.parse(campos[2], DateTimeFormatter.ISO_DATE_TIME)); //TODO fazer conversão data e hora
-					luz1.setTimerFim(LocalDateTime.parse(campos[3], DateTimeFormatter.ISO_DATE_TIME));
-					luz1.setCor(campos[4]);
-					luz1.setIntensidade(Integer.valueOf(campos[5]));
-					luz1.setVolumeSom(Integer.valueOf(campos[6]));
-					luz1.setPower(Boolean.valueOf(campos[7]));
-					try {
-						System.out.println("Duração agendada do tempo de funcionamento: " + luz1.quantidadeHorasAgendada());
-						luzService.incluir(luz1);
-					} catch (VolumeSomInvalidoException e) {
-						System.out.println("[ERROR - LUZ] " + e.getMessage() + "\n");
+
+					if ("L".equalsIgnoreCase(campos[0])) {
+						try {
+							Luz luz1 = new Luz();
+							luz1.setNome(campos[1]);
+							luz1.setStatus(campos[2]);
+							// TODO fazer conversão data e hora
+							luz1.setTimerInicio(LocalDateTime.parse(campos[3], DateTimeFormatter.ISO_DATE_TIME));
+							luz1.setTimerFim(LocalDateTime.parse(campos[4], DateTimeFormatter.ISO_DATE_TIME));
+							luz1.setCor(campos[5]);
+							luz1.setIntensidade(Integer.valueOf(campos[6]));
+							luz1.setVolumeSom(Integer.valueOf(campos[7]));
+							luz1.setPower(Boolean.valueOf(campos[8]));
+							System.out.println(
+									"Duração agendada do tempo de funcionamento: " + luz1.quantidadeHorasAgendada());
+							luzService.incluir(luz1);
+						} catch (VolumeSomInvalidoException e) {
+							System.out.println("[ERROR - LUZ] " + e.getMessage() + "\n");
+						}
 					}
-					
+
 					linha = leitura.readLine();
 				}
-				
+
 				leitura.close();
 				fileReader.close();
 			} catch (FileNotFoundException e) {
@@ -66,7 +70,6 @@ public class LuzTeste implements ApplicationRunner {
 		} finally {
 			System.out.println("Finalizado.");
 		}
-		
-		
+
 	}
 }

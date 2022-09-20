@@ -20,41 +20,45 @@ public class ArCondicionadoTeste implements ApplicationRunner {
 
 	@Autowired
 	private ArCondicionadoService arCondicionadoService;
-	
+
 	@Override
 	public void run(ApplicationArguments args) {
-		
+
 		String dir = "C:\\Users\\bruna\\OneDrive\\Área de Trabalho\\EclipeEE_Workspace\\appdomotica\\src\\main\\webapp\\WEB-INF\\arquivos_txt\\";
-		String arq = "arCondicionado.txt";
+		String arq = "aparelho.txt";
 
 		try {
 			try {
 				FileReader fileReader = new FileReader(dir + arq);
 				BufferedReader leitura = new BufferedReader(fileReader);
-				
+
 				String linha = leitura.readLine();
-				while(linha != null) {
-					try {
-						
-						String[] campos = linha.split(";");
-						
-						ArCondicionado ac1 = new ArCondicionado();
-						ac1.setNome(campos[0]);
-						ac1.setStatus(campos[1]);
-						ac1.setTimerInicio(LocalDateTime.parse(campos[2]));
-						ac1.setTimerFim(LocalDateTime.parse(campos[3]));
-						ac1.setTemperatura(Double.valueOf(campos[4]));
-						ac1.setVentilacao(Boolean.valueOf(campos[5]));
-						ac1.setPower(Boolean.valueOf(campos[6]));
-						
-						System.out.println("Duração agendada do tempo de funcionamento: " + ac1.quantidadeHorasAgendada());
-						arCondicionadoService.incluir(ac1);
-					} catch (TemperaturaNaoPodeSerMuitoBaixa e) {
-						System.out.println("[ERROR - A.C] " + e.getMessage() + "\n");
+				while (linha != null) {
+
+					String[] campos = linha.split(";");
+
+					if ("A".equalsIgnoreCase(campos[0])) {
+						try {
+							ArCondicionado ac1 = new ArCondicionado();
+							ac1.setNome(campos[1]);
+							ac1.setStatus(campos[2]);
+							ac1.setTimerInicio(LocalDateTime.parse(campos[3]));
+							ac1.setTimerFim(LocalDateTime.parse(campos[4]));
+							ac1.setTemperatura(Double.valueOf(campos[5]));
+							ac1.setVentilacao(Boolean.valueOf(campos[6]));
+							ac1.setPower(Boolean.valueOf(campos[7]));
+
+							System.out.println(
+									"Duração agendada do tempo de funcionamento: " + ac1.quantidadeHorasAgendada());
+							arCondicionadoService.incluir(ac1);
+						} catch (TemperaturaNaoPodeSerMuitoBaixa e) {
+							System.out.println("[ERROR - A.C] " + e.getMessage() + "\n");
+						}
+
 					}
 					linha = leitura.readLine();
 				}
-				
+
 				leitura.close();
 				fileReader.close();
 			} catch (FileNotFoundException e) {
@@ -65,6 +69,6 @@ public class ArCondicionadoTeste implements ApplicationRunner {
 		} finally {
 			System.out.println("Finalizado.");
 		}
-		
+
 	}
 }
