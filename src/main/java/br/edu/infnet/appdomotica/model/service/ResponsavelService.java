@@ -1,33 +1,31 @@
 package br.edu.infnet.appdomotica.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appdomotica.model.AppImpressao;
 import br.edu.infnet.appdomotica.model.domain.Responsavel;
+import br.edu.infnet.appdomotica.model.repository.ResponsavelRepository;
 
 @Service
 public class ResponsavelService {
 	
-	private static Map<Integer, Responsavel> mapaResponsavel = new HashMap<Integer, Responsavel>();
-	private static Integer id = 1;
+	@Autowired
+	private ResponsavelRepository responsavelRepository;
 	
 	public void incluir(Responsavel responsavel) {
-
-		responsavel.setId(id++);
-		mapaResponsavel.put(responsavel.getId(), responsavel);
+		responsavelRepository.save(responsavel);
 		
 		AppImpressao.relatorio("Criação do responsável '" + responsavel.getLogin() + "'", responsavel); 
 	}
 	
-	public Collection<Responsavel> obterLista() {
-		return mapaResponsavel.values();
+	public Collection<Responsavel> obterLista() {	
+		return (Collection<Responsavel>) responsavelRepository.findAll();
 	}
 	
 	public void excluir(Integer id) {
-		mapaResponsavel.remove(id);
+		responsavelRepository.deleteById(id);
 	}
 }

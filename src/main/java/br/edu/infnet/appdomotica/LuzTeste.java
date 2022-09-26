@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appdomotica.model.domain.Luz;
@@ -17,6 +18,7 @@ import br.edu.infnet.appdomotica.model.exceptions.VolumeSomInvalidoException;
 import br.edu.infnet.appdomotica.model.service.LuzService;
 
 @Component
+@Order(3)
 public class LuzTeste implements ApplicationRunner {
 
 	@Autowired

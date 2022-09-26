@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appdomotica.model.domain.ArCondicionado;
@@ -16,6 +17,7 @@ import br.edu.infnet.appdomotica.model.exceptions.TemperaturaNaoPodeSerMuitoBaix
 import br.edu.infnet.appdomotica.model.service.ArCondicionadoService;
 
 @Component
+@Order(5)
 public class ArCondicionadoTeste implements ApplicationRunner {
 
 	@Autowired

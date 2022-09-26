@@ -1,14 +1,36 @@
 package br.edu.infnet.appdomotica.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import br.edu.infnet.appdomotica.interfaces.IPrinter;
 import br.edu.infnet.appdomotica.model.exceptions.CpfInvalidoException;
 
+@Entity
+@Table(name = "TResposanvel")
 public class Responsavel implements IPrinter {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+
 	private String login;
 	private String senha;
 	private String cpf;
 	private String telefone;
+
+	@ManyToOne
+	@JoinColumn(name = "idMorador")
+	private Morador morador;
+
+	public Responsavel() {
+
+	}
 
 	public Responsavel(String login, String senha, String cpf, String telefone) throws CpfInvalidoException {
 		if (cpf == null)
@@ -65,6 +87,14 @@ public class Responsavel implements IPrinter {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public Morador getMorador() {
+		return morador;
+	}
+
+	public void setMorador(Morador morador) {
+		this.morador = morador;
 	}
 
 	@Override

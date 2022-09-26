@@ -4,19 +4,18 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appdomotica.model.domain.Luz;
 import br.edu.infnet.appdomotica.model.domain.Morador;
-import br.edu.infnet.appdomotica.model.exceptions.VolumeSomInvalidoException;
 import br.edu.infnet.appdomotica.model.service.MoradorService;
 
 @Component
+@Order(1)
 public class MoradorTeste implements ApplicationRunner {
 
 	@Autowired

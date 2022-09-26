@@ -27,6 +27,7 @@
 					<th scope="col">Senha</th>
 					<th scope="col">CPF</th>
 					<th scope="col">Telefone</th>
+					<th scope="col">Morador</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -38,6 +39,7 @@
 						<td>${r.senha}</td>
 						<td>${r.cpf}</td>
 						<td>${r.telefone}</td>
+						<td>${r.morador.email}</td>
 						<td><a href="/responsavel/${r.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>

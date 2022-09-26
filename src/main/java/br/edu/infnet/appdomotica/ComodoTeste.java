@@ -14,6 +14,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appdomotica.model.domain.Aparelho;
@@ -25,11 +26,10 @@ import br.edu.infnet.appdomotica.model.domain.Responsavel;
 import br.edu.infnet.appdomotica.model.exceptions.ComodoSemAparelhosException;
 import br.edu.infnet.appdomotica.model.exceptions.CpfInvalidoException;
 import br.edu.infnet.appdomotica.model.exceptions.ResponsavelNuloException;
-import br.edu.infnet.appdomotica.model.exceptions.TamanhoMaximoSenhaException;
-import br.edu.infnet.appdomotica.model.exceptions.VolumeSomInvalidoException;
 import br.edu.infnet.appdomotica.model.service.ComodoService;
 
 @Component
+@Order(6)
 public class ComodoTeste implements ApplicationRunner {
 
 	@Autowired

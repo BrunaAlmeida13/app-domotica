@@ -11,14 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import br.edu.infnet.appdomotica.model.AppImpressao;
 import br.edu.infnet.appdomotica.model.domain.Morador;
-import br.edu.infnet.appdomotica.model.domain.app.Projeto;
 import br.edu.infnet.appdomotica.model.service.AppService;
 import br.edu.infnet.appdomotica.model.service.MoradorService;
 
-@SessionAttributes("user")
 @Controller
+@SessionAttributes(names = "user")
 public class AppController {
 	
 	@Autowired
@@ -47,7 +45,7 @@ public class AppController {
 		
 		if(morador != null) {
 			
-			model.addAttribute("user", morador.getNome());
+			model.addAttribute("user", morador.getId());
 			
 			return "home";
 		}	
