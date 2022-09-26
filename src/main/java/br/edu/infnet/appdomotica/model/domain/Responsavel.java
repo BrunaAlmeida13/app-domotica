@@ -12,7 +12,7 @@ import br.edu.infnet.appdomotica.interfaces.IPrinter;
 import br.edu.infnet.appdomotica.model.exceptions.CpfInvalidoException;
 
 @Entity
-@Table(name = "TResposanvel")
+@Table(name = "TResponsavel")
 public class Responsavel implements IPrinter {
 
 	@Id

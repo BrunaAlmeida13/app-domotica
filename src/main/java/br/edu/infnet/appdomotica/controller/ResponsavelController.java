@@ -23,9 +23,9 @@ public class ResponsavelController {
 	private MoradorService moradorService;
 	
 	@GetMapping(value = "/responsavel/lista")
-	public String telaLista(Model model) {
+	public String telaLista(Model model, @SessionAttribute("user") Morador user) {
 		
-		model.addAttribute("listagem", responsavelService.obterLista());
+		model.addAttribute("listagem", responsavelService.obterLista(user));
 		
 		return "responsavel/lista";
 	}

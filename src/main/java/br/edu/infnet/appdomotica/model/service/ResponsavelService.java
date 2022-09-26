@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appdomotica.model.AppImpressao;
+import br.edu.infnet.appdomotica.model.domain.Morador;
 import br.edu.infnet.appdomotica.model.domain.Responsavel;
 import br.edu.infnet.appdomotica.model.repository.ResponsavelRepository;
 
@@ -23,6 +24,10 @@ public class ResponsavelService {
 	
 	public Collection<Responsavel> obterLista() {	
 		return (Collection<Responsavel>) responsavelRepository.findAll();
+	}
+	
+	public Collection<Responsavel> obterLista(Morador morador) {
+		return responsavelRepository.obterLista(morador.getId());
 	}
 	
 	public void excluir(Integer id) {
