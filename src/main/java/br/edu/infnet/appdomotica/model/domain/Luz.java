@@ -1,7 +1,18 @@
 package br.edu.infnet.appdomotica.model.domain;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.appdomotica.model.exceptions.VolumeSomInvalidoException;
 
+@Entity
+@Table(name = "TLuz")
 public class Luz extends Aparelho {
 	private String cor;
 	private int intensidade;

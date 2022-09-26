@@ -41,17 +41,17 @@ public class FechaduraTeste implements ApplicationRunner {
 
 					if ("F".equalsIgnoreCase(campos[0])) {
 						try {
-							Fechadura fechadura1 = new Fechadura();
-							fechadura1.setNome(campos[1]);
-							fechadura1.setStatus(campos[2]);
-							fechadura1.setTimerInicio(LocalDateTime.parse(campos[3]));
-							fechadura1.setTimerFim(LocalDateTime.parse(campos[4]));
-							fechadura1.setSenha(campos[5]);
-							fechadura1.setTrancada(Boolean.valueOf(campos[6]));
-							fechadura1.setAlarme(Boolean.valueOf(campos[7]));
+							Fechadura fechadura = new Fechadura();
+							fechadura.setNome(campos[1]);
+							fechadura.setStatus(campos[2]);
+							fechadura.timerInicioConversao(campos[3]);
+							fechadura.timerFimConversao(campos[4]);
+							fechadura.setSenha(campos[5]);
+							fechadura.setTrancada(Boolean.valueOf(campos[6]));
+							fechadura.setAlarme(Boolean.valueOf(campos[7]));
 							System.out.println("Duração agendada do tempo de funcionamento: "
-									+ fechadura1.quantidadeHorasAgendada());
-							fechaduraService.incluir(fechadura1);
+									+ fechadura.quantidadeHorasAgendada());
+							fechaduraService.incluir(fechadura);
 						} catch (TamanhoMaximoSenhaException e) {
 							System.out.println("[ERROR - FECHADURA] " + e.getMessage() + "\n");
 						}

@@ -3,16 +3,36 @@ package br.edu.infnet.appdomotica.model.domain;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import br.edu.infnet.appdomotica.interfaces.IPrinter;
 import br.edu.infnet.appdomotica.model.exceptions.TamanhoMaximoSenhaException;
 import br.edu.infnet.appdomotica.model.exceptions.TemperaturaNaoPodeSerMuitoBaixa;
 import br.edu.infnet.appdomotica.model.exceptions.VolumeSomInvalidoException;
 
+@Entity
+@Table(name = "TAparelho")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Aparelho implements IPrinter {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String nome;
 	private String status;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private LocalDateTime timerInicio = LocalDateTime.now();
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private LocalDateTime timerFim = LocalDateTime.now();
 
 	public abstract long quantidadeHorasAgendada()
@@ -56,6 +76,16 @@ public abstract class Aparelho implements IPrinter {
 
 	public void setTimerFim(LocalDateTime timerFim) {
 		this.timerFim = timerFim;
+	}
+	
+	public void timerInicioConversao(String timerString) {
+		LocalDateTime timerInicio = LocalDateTime.parse(timerString);
+		this.setTimerInicio(timerInicio);
+	}
+
+	public void timerFimConversao(String timerString) {
+		LocalDateTime timerFim = LocalDateTime.parse(timerString);
+		this.setTimerInicio(timerFim);
 	}
 	
 	@Override

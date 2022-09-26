@@ -1,7 +1,12 @@
 package br.edu.infnet.appdomotica.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.appdomotica.model.exceptions.TamanhoMaximoSenhaException;
 
+@Entity
+@Table(name = "TFechadura")
 public class Fechadura extends Aparelho {
 	private String senha;
 	private boolean trancada;

@@ -44,9 +44,8 @@ public class LuzTeste implements ApplicationRunner {
 							Luz luz1 = new Luz();
 							luz1.setNome(campos[1]);
 							luz1.setStatus(campos[2]);
-							// TODO fazer conversão data e hora - front-end
-							luz1.setTimerInicio(LocalDateTime.parse(campos[3], DateTimeFormatter.ISO_DATE_TIME));
-							luz1.setTimerFim(LocalDateTime.parse(campos[4], DateTimeFormatter.ISO_DATE_TIME));
+							luz1.timerInicioConversao(campos[3]);
+							luz1.timerFimConversao(campos[4]);
 							luz1.setCor(campos[5]);
 							luz1.setIntensidade(Integer.valueOf(campos[6]));
 							luz1.setVolumeSom(Integer.valueOf(campos[7]));

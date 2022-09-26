@@ -1,7 +1,12 @@
 package br.edu.infnet.appdomotica.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.appdomotica.model.exceptions.TemperaturaNaoPodeSerMuitoBaixa;
 
+@Entity
+@Table(name = "TArcondicionado")
 public class ArCondicionado extends Aparelho {
 	private double temperatura;
 	private boolean ventilacao;

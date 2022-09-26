@@ -44,8 +44,8 @@ public class ArCondicionadoTeste implements ApplicationRunner {
 							ArCondicionado ac1 = new ArCondicionado();
 							ac1.setNome(campos[1]);
 							ac1.setStatus(campos[2]);
-							ac1.setTimerInicio(LocalDateTime.parse(campos[3]));
-							ac1.setTimerFim(LocalDateTime.parse(campos[4]));
+							ac1.timerInicioConversao(campos[3]);
+							ac1.timerFimConversao(campos[4]);
 							ac1.setTemperatura(Double.valueOf(campos[5]));
 							ac1.setVentilacao(Boolean.valueOf(campos[6]));
 							ac1.setPower(Boolean.valueOf(campos[7]));
