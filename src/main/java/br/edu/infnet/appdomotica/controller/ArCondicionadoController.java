@@ -12,7 +12,6 @@ import br.edu.infnet.appdomotica.model.domain.ArCondicionado;
 import br.edu.infnet.appdomotica.model.service.ArCondicionadoService;
 
 @Controller
-@Order(5)
 public class ArCondicionadoController {
 	
 	@Autowired
@@ -23,20 +22,20 @@ public class ArCondicionadoController {
 		
 		model.addAttribute("listagem", arCondicionadoService.obterLista());
 		
-		return "arCondicionado/lista";
+		return "arcondicionado/lista";
 	}
 	
-	@GetMapping(value = "/arCondicionado/incluir")
+	@GetMapping(value = "/arcondicionado/incluir")
 	public String telaCadastro() {
-		return "arCondicionado/cadastro";
+		return "arcondicionado/cadastro";
 	}
 
-	@PostMapping(value = "/arCondicionado/incluir")
+	@PostMapping(value = "/arcondicionado/incluir")
 	public String incluir(ArCondicionado arCondicionado) {
 
 		arCondicionadoService.incluir(arCondicionado);
 
-		return "redirect:/arCondicionado/lista";
+		return "redirect:/arcondicionado/lista";
 	}
 	
 	@GetMapping(value = "/arcondicionado/{id}/excluir")

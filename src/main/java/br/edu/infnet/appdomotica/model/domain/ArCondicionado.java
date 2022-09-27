@@ -20,12 +20,13 @@ public class ArCondicionado extends Aparelho {
 
 	@Override
 	public long quantidadeHorasAgendada() throws TemperaturaNaoPodeSerMuitoBaixa {
-		
-		if(this.getTemperatura() < 10) {
+
+		if (this.getTemperatura() < 10) {
 			this.setTemperatura(10);
-			throw new TemperaturaNaoPodeSerMuitoBaixa("Temperatura não aceita! Temperatura abaixo de 10 pode congelar o A.C.");
+			throw new TemperaturaNaoPodeSerMuitoBaixa(
+					"Temperatura não aceita! Temperatura abaixo de 10 pode congelar o A.C.");
 		}
-		
+
 		long hours = 1;
 		if (getTimerFim() == null || getTimerInicio() == null) {
 			System.out.println("Função horario de funcionamento para no mínimo 1h");
@@ -34,7 +35,15 @@ public class ArCondicionado extends Aparelho {
 		}
 		return hours;
 	}
-	
+
+	@Override
+	public void status() {
+		if (this.power == true)
+			super.setStatus("On");
+		else
+			super.setStatus("Off");
+	}
+
 	public double getTemperatura() {
 		return temperatura;
 	}

@@ -44,12 +44,12 @@ public class Luz extends Aparelho {
 
 	@Override
 	public void status() {
-		if(this.power == true)
+		if (this.power == true)
 			super.setStatus("On");
 		else
 			super.setStatus("Off");
 	}
-	
+
 	public String getCor() {
 		return cor;
 	}

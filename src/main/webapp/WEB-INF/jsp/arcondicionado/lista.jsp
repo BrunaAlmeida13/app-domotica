@@ -25,10 +25,10 @@
 					<th scope="col">ID</th>
 					<th scope="col">Nome</th>
 					<th scope="col">Status</th>
-					<th scope="col">Timer Inicio</th>
+					<th scope="col">Timer Início</th>
 					<th scope="col">Timer Fim</th>
 					<th scope="col">Temperatura</th>
-					<th scope="col">Ventilacao</th>
+					<th scope="col">Ventilação</th>
 					<th scope="col">Power</th>
 					<th></th>
 				</tr>
@@ -42,14 +42,24 @@
 						<td>${a.timerInicio}</td>
 						<td>${a.timerFim}</td>
 						<td>${a.temperatura}</td>
-						<td>${a.ventilacao}</td>
-						<td>${a.power}</td>
+						<c:if test="${a.ventilacao == true}">
+						<td>Ligada</td>
+						</c:if>
+						<c:if test="${a.ventilacao == false}">
+						<td>Desligada</td>
+						</c:if>
+						<c:if test="${a.power == true}">
+						<td>Ligado</td>
+						</c:if>
+						<c:if test="${a.power == false}">
+						<td>Desligado</td>
+						</c:if>
 						<td><a href="/arcondicionado/${a.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<a class="nav-link"	href="/arCondicionado/incluir">Cadastrar um Ar Condicionado</a>
+		<a class="nav-link"	href="/arcondicionado/incluir">Cadastrar um Ar Condicionado</a>
 	</div>
 </body>
 </html>

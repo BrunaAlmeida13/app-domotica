@@ -4,31 +4,32 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appdomotica.model.AppImpressao;
 import br.edu.infnet.appdomotica.model.domain.ArCondicionado;
+import br.edu.infnet.appdomotica.model.domain.Luz;
+import br.edu.infnet.appdomotica.model.repository.ArCondicionadoRepository;
 
 @Service
 public class ArCondicionadoService {
 	
-	private static Map<Integer, ArCondicionado> mapaAC = new HashMap<Integer, ArCondicionado>();
-	private static Integer id = 1;
+	@Autowired
+	private ArCondicionadoRepository arCondicionadoRepository;
 	
 	public void incluir(ArCondicionado ac) {
-		ac.setId(id++);
-		mapaAC.put(ac.getId(), ac);
+		ac.status();
+		arCondicionadoRepository.save(ac);
 		
 		AppImpressao.relatorio("Configuração do A.C.'" + ac.getNome() + "'", ac); 
 	}
 	
 	public Collection<ArCondicionado> obterLista() {
-		return mapaAC.values();
+		return (Collection<ArCondicionado>) arCondicionadoRepository.findAll();
 	}
 	
 	public void excluir(Integer id) {
-		mapaAC.remove(id);
+		arCondicionadoRepository.deleteById(id);
 	}	
-	
-	// TODO tela e rota de cadastro
 }

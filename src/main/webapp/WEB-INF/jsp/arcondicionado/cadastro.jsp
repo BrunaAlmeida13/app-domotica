@@ -20,7 +20,7 @@
 
 		<h2>Cadastro do Ar Condicionado</h2>
 
-		<form action="/arCondicionado/incluir" method="post">
+		<form action="/arcondicionado/incluir" method="post">
 			
 			<c:import url="/WEB-INF/jsp/aparelho/cadastro.jsp" />
 			
@@ -29,15 +29,15 @@
 					name="temperatura">
 			</div>
 			<div class="mb-3">
-				<label>Ventilação</label> <select name="ventilação">
-					<option value="1">Ligado</option>
-					<option value="0">Desligado</option>
+				<label>Ventilação</label> <select name="ventilacao">
+					<option value="true">Ligado</option>
+					<option value="false">Desligado</option>
 				</select>
 			</div>
 			<div class="mb-3">
 				<label>Power</label> <select name="power">
-					<option value="1">Ligado</option>
-					<option value="0">Desligado</option>
+					<option value="true">Ligado</option>
+					<option value="false">Desligado</option>
 				</select>
 			</div>
 			<br>

@@ -11,7 +11,7 @@ import br.edu.infnet.appdomotica.model.repository.LuzRepository;
 
 @Service
 public class LuzService {
-	
+
 	@Autowired
 	private LuzRepository luzRepository;
 
@@ -22,11 +22,11 @@ public class LuzService {
 		AppImpressao.relatorio("Configuração Luz '" + luz.getNome() + "'", luz);
 	}
 
-	public void excluir(Integer id) {
-		luzRepository.deleteById(id);
-	}
-
 	public Collection<Luz> obterLista() {
 		return (Collection<Luz>) luzRepository.findAll();
+	}
+
+	public void excluir(Integer id) {
+		luzRepository.deleteById(id);
 	}
 }
