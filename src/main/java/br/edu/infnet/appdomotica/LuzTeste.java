@@ -41,18 +41,19 @@ public class LuzTeste implements ApplicationRunner {
 
 					if ("L".equalsIgnoreCase(campos[0])) {
 						try {
-							Luz luz1 = new Luz();
-							luz1.setNome(campos[1]);
-							luz1.setStatus(campos[2]);
-							luz1.timerInicioConversao(campos[3]);
-							luz1.timerFimConversao(campos[4]);
-							luz1.setCor(campos[5]);
-							luz1.setIntensidade(Integer.valueOf(campos[6]));
-							luz1.setVolumeSom(Integer.valueOf(campos[7]));
-							luz1.setPower(Boolean.valueOf(campos[8]));
+							Luz luz = new Luz();
+							luz.setNome(campos[1]);
+							luz.setStatus(campos[2]);
+							luz.timerInicioConversao(campos[3]);
+							luz.timerFimConversao(campos[4]);
+							luz.setCor(campos[5]);
+							luz.setIntensidade(Integer.valueOf(campos[6]));
+							luz.setVolumeSom(Integer.valueOf(campos[7]));
+							luz.setPower(Boolean.valueOf(campos[8]));
+							luzService.incluir(luz);
 							System.out.println(
-									"Duração agendada do tempo de funcionamento: " + luz1.quantidadeHorasAgendada());
-							luzService.incluir(luz1);
+									"Duração agendada do tempo de funcionamento: " + luz.quantidadeHorasAgendada());
+					
 						} catch (VolumeSomInvalidoException e) {
 							System.out.println("[ERROR - LUZ] " + e.getMessage() + "\n");
 						}

@@ -1,32 +1,32 @@
 package br.edu.infnet.appdomotica.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appdomotica.model.AppImpressao;
 import br.edu.infnet.appdomotica.model.domain.Luz;
+import br.edu.infnet.appdomotica.model.repository.LuzRepository;
 
 @Service
 public class LuzService {
 	
-	private static Map<Integer, Luz> mapaLuz = new HashMap<Integer, Luz>();
-	private static Integer id = 1;
+	@Autowired
+	private LuzRepository luzRepository;
 
 	public void incluir(Luz luz) {
-		luz.setId(id++);
-		mapaLuz.put(luz.getId(), luz);
+		luz.statusLuz();
+		luzRepository.save(luz);
 
 		AppImpressao.relatorio("Configuração Luz '" + luz.getNome() + "'", luz);
 	}
 
 	public void excluir(Integer id) {
-		mapaLuz.remove(id);
+		luzRepository.deleteById(id);
 	}
 
 	public Collection<Luz> obterLista() {
-		return mapaLuz.values();
+		return (Collection<Luz>) luzRepository.findAll();
 	}
 }

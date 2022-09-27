@@ -1,11 +1,5 @@
 package br.edu.infnet.appdomotica.model.domain;
 
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -42,12 +36,19 @@ public class Luz extends Aparelho {
 			if (tempoMaximo) {
 				this.power = false;
 				this.volumeSom = 0;
-				this.setStatus("Desligada");
+				this.setStatus("Off");
 			}
 		}
 		return hours;
 	}
 
+	public void statusLuz() {
+		if(this.power == true)
+			super.setStatus("On");
+		else
+			super.setStatus("Off");
+	}
+	
 	public String getCor() {
 		return cor;
 	}

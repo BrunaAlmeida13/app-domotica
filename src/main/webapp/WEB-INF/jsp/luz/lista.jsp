@@ -45,7 +45,12 @@
 						<td>${l.cor}</td>
 						<td>${l.intensidade}</td>
 						<td>${l.volumeSom}</td>
-						<td>${l.power}</td>
+						<c:if test="${l.power == true}">
+						<td>Ligada</td>
+						</c:if>
+						<c:if test="${l.power == false}">
+						<td>Desligada</td>
+						</c:if>
 						<td><a href="/luz/${l.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>

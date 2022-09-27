@@ -42,8 +42,8 @@
 			</div>
 			<div class="mb-3">
 				<label>Power</label> <select name="power">
-					<option value="1">Ligada</option>
-					<option value="0">Desligada</option>
+					<option value="true">Ligada</option>
+					<option value="false">Desligada</option>
 				</select>
 			</div>
 			<button type="submit" class="btn btn-dark">Cadastrar</button>
