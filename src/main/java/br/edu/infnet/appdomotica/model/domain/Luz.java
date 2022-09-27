@@ -42,7 +42,8 @@ public class Luz extends Aparelho {
 		return hours;
 	}
 
-	public void statusLuz() {
+	@Override
+	public void status() {
 		if(this.power == true)
 			super.setStatus("On");
 		else

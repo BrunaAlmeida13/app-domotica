@@ -16,7 +16,7 @@ public class LuzService {
 	private LuzRepository luzRepository;
 
 	public void incluir(Luz luz) {
-		luz.statusLuz();
+		luz.status();
 		luzRepository.save(luz);
 
 		AppImpressao.relatorio("Configuração Luz '" + luz.getNome() + "'", luz);

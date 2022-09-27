@@ -30,14 +30,14 @@
 			</div>
 			<div class="mb-3">
 				<label>Trancada</label> <select name="trancada">
-					<option value="1">Trancada</option>
-					<option value="0">Destrancada</option>
+					<option value="true">Trancada</option>
+					<option value="false">Destrancada</option>
 				</select>
 			</div>
 			<div class="mb-3">
 				<label>Alarme</label> <select name="alarme">
-					<option value="1">Ligado</option>
-					<option value="0">Desligado</option>
+					<option value="true">Ligado</option>
+					<option value="false">Desligado</option>
 				</select>
 			</div>
 			<br>

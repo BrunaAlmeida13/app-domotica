@@ -36,6 +36,14 @@ public class Fechadura extends Aparelho {
 		return hours;
 	}
 	
+	@Override
+	public void status() {
+		if(this.trancada == true)
+			super.setStatus("Trancada");
+		else
+			super.setStatus("Destrancada");
+	}
+	
 	public String getSenha() {
 		return senha;
 	}
@@ -57,7 +65,10 @@ public class Fechadura extends Aparelho {
 	}
 
 	public void setAlarme(boolean alarme) {
-		this.alarme = alarme;
+		if(this.trancada == true)
+			this.alarme = alarme;
+		else
+			this.alarme = false;
 	}
 
 	@Override
@@ -65,4 +76,5 @@ public class Fechadura extends Aparelho {
 		return "Fechadura [" + super.toString() + "Senha: " + this.senha + "; Trancada: " + this.trancada + "; Alarme: "
 				+ this.alarme + "]\n";
 	}
+
 }

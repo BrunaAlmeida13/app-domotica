@@ -42,8 +42,18 @@
 						<td>${f.timerInicio}</td>
 						<td>${f.timerFim}</td>
 						<td>${f.senha}</td>
-						<td>${f.trancada}</td>
-						<td>${f.alarme}</td>
+						<c:if test="${f.trancada == true}">
+						<td>Trancada</td>
+						</c:if>
+						<c:if test="${f.trancada == false}">
+						<td>Destrancada</td>
+						</c:if>
+						<c:if test="${f.alarme == true}">
+						<td>Ligado</td>
+						</c:if>
+						<c:if test="${f.alarme == false}">
+						<td>Desligado</td>
+						</c:if>
 						<td><a href="/fechadura/${f.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>

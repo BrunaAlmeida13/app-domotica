@@ -4,29 +4,33 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appdomotica.model.AppImpressao;
 import br.edu.infnet.appdomotica.model.domain.Fechadura;
+import br.edu.infnet.appdomotica.model.domain.Luz;
+import br.edu.infnet.appdomotica.model.repository.FechaduraRepository;
 
 @Service
 public class FechaduraService {
-	private static Map<Integer, Fechadura> mapaFechadura = new HashMap<Integer, Fechadura>();
-	private static Integer id = 1;
+	
+	@Autowired
+	private FechaduraRepository fechaduraRepository;
 	
 	public void incluir(Fechadura fechadura) {
-		fechadura.setId(id++);
-		mapaFechadura.put(fechadura.getId(), fechadura);
+		fechadura.status();
+		fechaduraRepository.save(fechadura);
 		
 		AppImpressao.relatorio("Configuração da Fechadura '" + fechadura.getNome() + "'", fechadura); 
 	}
 	
 	public Collection<Fechadura> obterLista() {
-		return mapaFechadura.values();
+		return (Collection<Fechadura>) fechaduraRepository.findAll();
 	}
 	
 
 	public void excluir(Integer id) {
-		mapaFechadura.remove(id);
+		fechaduraRepository.deleteById(id);
 	}
 }

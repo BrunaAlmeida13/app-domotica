@@ -37,6 +37,8 @@ public abstract class Aparelho implements IPrinter {
 
 	public abstract long quantidadeHorasAgendada()
 			throws VolumeSomInvalidoException, TamanhoMaximoSenhaException, TemperaturaNaoPodeSerMuitoBaixa;
+	
+	public abstract void status();
 
 	public Integer getId() {
 		return id;
