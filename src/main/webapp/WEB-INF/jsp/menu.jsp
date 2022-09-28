@@ -11,6 +11,7 @@
 				<li class="nav-item"><a class="nav-link" href="/comodo/lista">Comodo</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="/responsavel/lista">Responsavel</a></li>
+				<li class="nav-item"><a class="nav-link" href="/aparelho/lista">Aparelho</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="/arcondicionado/lista">ArCondicionado</a></li>
 				<li class="nav-item"><a class="nav-link" href="/luz/lista">Luz</a></li>
