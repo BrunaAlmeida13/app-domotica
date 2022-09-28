@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -14,6 +12,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appdomotica.model.domain.Luz;
+import br.edu.infnet.appdomotica.model.domain.Morador;
 import br.edu.infnet.appdomotica.model.exceptions.VolumeSomInvalidoException;
 import br.edu.infnet.appdomotica.model.service.LuzService;
 
@@ -26,6 +25,10 @@ public class LuzTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) {
+		
+		Morador morador = new Morador();
+		morador.setId(1);
+		
 		String dir = "C:\\Users\\bruna\\OneDrive\\Área de Trabalho\\EclipeEE_Workspace\\appdomotica\\src\\main\\webapp\\WEB-INF\\arquivos_txt\\";
 		String arq = "aparelho.txt";
 
@@ -50,6 +53,7 @@ public class LuzTeste implements ApplicationRunner {
 							luz.setIntensidade(Integer.valueOf(campos[6]));
 							luz.setVolumeSom(Integer.valueOf(campos[7]));
 							luz.setPower(Boolean.valueOf(campos[8]));
+							luz.setMorador(morador);
 							luzService.incluir(luz);
 							System.out.println(
 									"Duração agendada do tempo de funcionamento: " + luz.quantidadeHorasAgendada());

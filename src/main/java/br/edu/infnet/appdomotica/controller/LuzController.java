@@ -6,9 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.appdomotica.model.domain.Luz;
+import br.edu.infnet.appdomotica.model.domain.Morador;
 import br.edu.infnet.appdomotica.model.service.LuzService;
+import br.edu.infnet.appdomotica.model.service.MoradorService;
 
 @Controller
 public class LuzController {
@@ -17,9 +20,9 @@ public class LuzController {
 	private LuzService luzService;	
 	
 	@GetMapping(value = "/luz/lista")
-	public String telaLista(Model model) {
+	public String telaLista(Model model, @SessionAttribute("user") Morador user) {
 
-		model.addAttribute("listagem", luzService.obterLista());
+		model.addAttribute("listagem", luzService.obterLista(user));
 
 		return "luz/lista";
 	}
@@ -30,8 +33,9 @@ public class LuzController {
 	}
 
 	@PostMapping(value = "/luz/incluir")
-	public String incluir(Luz luz) {
-
+	public String incluir(Luz luz, @SessionAttribute("user") Morador user) {
+		luz.setMorador(user);
+		
 		luzService.incluir(luz);
 
 		return "redirect:/luz/lista";

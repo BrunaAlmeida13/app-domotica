@@ -13,6 +13,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appdomotica.model.domain.ArCondicionado;
+import br.edu.infnet.appdomotica.model.domain.Morador;
 import br.edu.infnet.appdomotica.model.exceptions.TemperaturaNaoPodeSerMuitoBaixa;
 import br.edu.infnet.appdomotica.model.service.ArCondicionadoService;
 
@@ -26,6 +27,9 @@ public class ArCondicionadoTeste implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) {
 
+		Morador morador = new Morador();
+		morador.setId(1);
+		
 		String dir = "C:\\Users\\bruna\\OneDrive\\Área de Trabalho\\EclipeEE_Workspace\\appdomotica\\src\\main\\webapp\\WEB-INF\\arquivos_txt\\";
 		String arq = "aparelho.txt";
 
@@ -41,18 +45,18 @@ public class ArCondicionadoTeste implements ApplicationRunner {
 
 					if ("A".equalsIgnoreCase(campos[0])) {
 						try {
-							ArCondicionado ac1 = new ArCondicionado();
-							ac1.setNome(campos[1]);
-							ac1.setStatus(campos[2]);
-							ac1.timerInicioConversao(campos[3]);
-							ac1.timerFimConversao(campos[4]);
-							ac1.setTemperatura(Double.valueOf(campos[5]));
-							ac1.setVentilacao(Boolean.valueOf(campos[6]));
-							ac1.setPower(Boolean.valueOf(campos[7]));
-
+							ArCondicionado ac = new ArCondicionado();
+							ac.setNome(campos[1]);
+							ac.setStatus(campos[2]);
+							ac.timerInicioConversao(campos[3]);
+							ac.timerFimConversao(campos[4]);
+							ac.setTemperatura(Double.valueOf(campos[5]));
+							ac.setVentilacao(Boolean.valueOf(campos[6]));
+							ac.setPower(Boolean.valueOf(campos[7]));
+							ac.setMorador(morador);
 							System.out.println(
-									"Duração agendada do tempo de funcionamento: " + ac1.quantidadeHorasAgendada());
-							arCondicionadoService.incluir(ac1);
+									"Duração agendada do tempo de funcionamento: " + ac.quantidadeHorasAgendada());
+							arCondicionadoService.incluir(ac);
 						} catch (TemperaturaNaoPodeSerMuitoBaixa e) {
 							System.out.println("[ERROR - A.C] " + e.getMessage() + "\n");
 						}

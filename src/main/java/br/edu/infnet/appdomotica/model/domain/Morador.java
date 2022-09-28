@@ -2,7 +2,6 @@ package br.edu.infnet.appdomotica.model.domain;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,10 +23,14 @@ public class Morador implements IPrinter {
 	private String nome;
 	private String email;
 	private String senha;
-	
+
 	@OneToMany
 	@JoinColumn(name = "idMorador")
 	private List<Responsavel> responsaveis;
+
+	@OneToMany
+	@JoinColumn(name = "idMorador")
+	private List<Aparelho> aparelhos;
 
 	public Morador() {
 	}
@@ -76,6 +79,14 @@ public class Morador implements IPrinter {
 
 	public void setResponsaveis(List<Responsavel> responsaveis) {
 		this.responsaveis = responsaveis;
+	}
+
+	public List<Aparelho> getAparelhos() {
+		return aparelhos;
+	}
+
+	public void setAparelhos(List<Aparelho> aparelhos) {
+		this.aparelhos = aparelhos;
 	}
 
 	@Override

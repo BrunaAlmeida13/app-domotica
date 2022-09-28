@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -34,6 +36,10 @@ public abstract class Aparelho implements IPrinter {
 	private LocalDateTime timerInicio = LocalDateTime.now();
 	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private LocalDateTime timerFim = LocalDateTime.now();
+	
+	@ManyToOne
+	@JoinColumn(name = "idMorador")
+	private Morador morador;
 
 	public abstract long quantidadeHorasAgendada()
 			throws VolumeSomInvalidoException, TamanhoMaximoSenhaException, TemperaturaNaoPodeSerMuitoBaixa;
@@ -80,6 +86,14 @@ public abstract class Aparelho implements IPrinter {
 		this.timerFim = timerFim;
 	}
 	
+	public Morador getMorador() {
+		return morador;
+	}
+
+	public void setMorador(Morador morador) {
+		this.morador = morador;
+	}
+
 	public void timerInicioConversao(String timerString) {
 		LocalDateTime timerInicio = LocalDateTime.parse(timerString);
 		this.setTimerInicio(timerInicio);

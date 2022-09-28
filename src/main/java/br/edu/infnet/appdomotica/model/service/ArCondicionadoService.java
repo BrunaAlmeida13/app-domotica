@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import br.edu.infnet.appdomotica.model.AppImpressao;
 import br.edu.infnet.appdomotica.model.domain.ArCondicionado;
 import br.edu.infnet.appdomotica.model.domain.Luz;
+import br.edu.infnet.appdomotica.model.domain.Morador;
 import br.edu.infnet.appdomotica.model.repository.ArCondicionadoRepository;
 
 @Service
@@ -27,6 +28,10 @@ public class ArCondicionadoService {
 	
 	public Collection<ArCondicionado> obterLista() {
 		return (Collection<ArCondicionado>) arCondicionadoRepository.findAll();
+	}
+	
+	public Collection<ArCondicionado> obterLista(Morador morador) {
+		return (Collection<ArCondicionado>) arCondicionadoRepository.findAll(morador.getId());
 	}
 	
 	public void excluir(Integer id) {

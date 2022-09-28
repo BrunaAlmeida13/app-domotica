@@ -13,6 +13,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appdomotica.model.domain.Fechadura;
+import br.edu.infnet.appdomotica.model.domain.Morador;
 import br.edu.infnet.appdomotica.model.exceptions.TamanhoMaximoSenhaException;
 import br.edu.infnet.appdomotica.model.service.FechaduraService;
 
@@ -26,6 +27,9 @@ public class FechaduraTeste implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) {
 
+		Morador morador = new Morador();
+		morador.setId(1);
+		
 		String dir = "C:\\Users\\bruna\\OneDrive\\Área de Trabalho\\EclipeEE_Workspace\\appdomotica\\src\\main\\webapp\\WEB-INF\\arquivos_txt\\";
 		String arq = "aparelho.txt";
 
@@ -49,6 +53,7 @@ public class FechaduraTeste implements ApplicationRunner {
 							fechadura.setSenha(campos[5]);
 							fechadura.setTrancada(Boolean.valueOf(campos[6]));
 							fechadura.setAlarme(Boolean.valueOf(campos[7]));
+							fechadura.setMorador(morador);
 							System.out.println("Duração agendada do tempo de funcionamento: "
 									+ fechadura.quantidadeHorasAgendada());
 							fechaduraService.incluir(fechadura);
