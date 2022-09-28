@@ -1,32 +1,29 @@
 package br.edu.infnet.appdomotica.model.service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appdomotica.model.domain.Aparelho;
+import br.edu.infnet.appdomotica.model.domain.Morador;
+import br.edu.infnet.appdomotica.model.repository.AparelhoRepository;
 
 @Service
 public class AparelhoService {
 	
 	@Autowired
-	private LuzService luzService;
+	private AparelhoRepository aparelhoRepository;
 	
-	@Autowired
-	private FechaduraService fechaduraService;
+	public Collection<Aparelho> obterLista() {
+		return (Collection<Aparelho>) aparelhoRepository.findAll();
+	}
 	
-	@Autowired
-	private ArCondicionadoService arCondicionadoService;
+	public Collection<Aparelho> obterLista(Morador morador) {
+		return (Collection<Aparelho>) aparelhoRepository.findAll(morador.getId());
+	}
 	
-	public List<Aparelho> obterLista() {
-		
-		List<Aparelho> aparelhos = new ArrayList<Aparelho>();
-		aparelhos.addAll(luzService.obterLista());
-		aparelhos.addAll(fechaduraService.obterLista());
-		aparelhos.addAll(arCondicionadoService.obterLista());
-		
-		return aparelhos;
+	public void excluir(Integer id) {
+		aparelhoRepository.deleteById(id);
 	}
 }

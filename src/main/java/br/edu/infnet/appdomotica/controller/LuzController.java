@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import br.edu.infnet.appdomotica.model.domain.Luz;
 import br.edu.infnet.appdomotica.model.domain.Morador;
 import br.edu.infnet.appdomotica.model.service.LuzService;
-import br.edu.infnet.appdomotica.model.service.MoradorService;
 
 @Controller
 public class LuzController {

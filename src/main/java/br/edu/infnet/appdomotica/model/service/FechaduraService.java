@@ -1,15 +1,12 @@
 package br.edu.infnet.appdomotica.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appdomotica.model.AppImpressao;
 import br.edu.infnet.appdomotica.model.domain.Fechadura;
-import br.edu.infnet.appdomotica.model.domain.Luz;
 import br.edu.infnet.appdomotica.model.domain.Morador;
 import br.edu.infnet.appdomotica.model.repository.FechaduraRepository;
 

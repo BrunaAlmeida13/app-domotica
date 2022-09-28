@@ -18,7 +18,7 @@
 
 	<br>
 	<div class="container mt-3">
-		<h3>Aparelho</h3>
+		<h3>Aparelhos</h3>
 		<table class="table table-striped table-dark">
 			<thead class="thead-dark">
 				<tr class="table-secondary">
@@ -38,7 +38,7 @@
 						<td>${ap.status}</td>
 						<td>${ap.timerInicio}</td>
 						<td>${ap.timerFim}</td>
-						<!--td><a href="/arcondicionado/${a.id}/excluir">excluir</a></td-->
+						<td><a href="/aparelho/${ap.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
