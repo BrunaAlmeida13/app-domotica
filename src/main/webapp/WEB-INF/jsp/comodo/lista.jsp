@@ -37,7 +37,7 @@
 						<td>${c.tipo}</td>
 						<td>${c.nome}</td>
 						<td>${c.listaAparelhos.size()}</td>
-						<td>${c.responsavel.login}</td>
+						<td>${c.responsavel.id}</td>
 						<td><a href="/comodo/${c.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>

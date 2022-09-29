@@ -1,6 +1,7 @@
 package br.edu.infnet.appdomotica.model.domain;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -24,26 +26,29 @@ import br.edu.infnet.appdomotica.model.exceptions.VolumeSomInvalidoException;
 @Table(name = "TAparelho")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Aparelho implements IPrinter {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String nome;
 	private String status;
-	
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private LocalDateTime timerInicio = LocalDateTime.now();
 	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private LocalDateTime timerFim = LocalDateTime.now();
-	
+
+	@ManyToMany(mappedBy = "listaAparelhos")
+	private List<Comodo> comodos;
+
 	@ManyToOne
 	@JoinColumn(name = "idMorador")
 	private Morador morador;
 
 	public abstract long quantidadeHorasAgendada()
 			throws VolumeSomInvalidoException, TamanhoMaximoSenhaException, TemperaturaNaoPodeSerMuitoBaixa;
-	
+
 	public abstract void status();
 
 	public Integer getId() {
@@ -85,13 +90,21 @@ public abstract class Aparelho implements IPrinter {
 	public void setTimerFim(LocalDateTime timerFim) {
 		this.timerFim = timerFim;
 	}
-	
+
 	public Morador getMorador() {
 		return morador;
 	}
 
 	public void setMorador(Morador morador) {
 		this.morador = morador;
+	}
+
+	public List<Comodo> getComodos() {
+		return comodos;
+	}
+
+	public void setComodos(List<Comodo> comodos) {
+		this.comodos = comodos;
 	}
 
 	public void timerInicioConversao(String timerString) {
@@ -103,7 +116,7 @@ public abstract class Aparelho implements IPrinter {
 		LocalDateTime timerFim = LocalDateTime.parse(timerString);
 		this.setTimerInicio(timerFim);
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(nome);

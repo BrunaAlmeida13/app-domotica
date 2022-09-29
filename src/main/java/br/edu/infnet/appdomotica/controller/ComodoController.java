@@ -7,7 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
+import br.edu.infnet.appdomotica.model.domain.Comodo;
+import br.edu.infnet.appdomotica.model.domain.Morador;
 import br.edu.infnet.appdomotica.model.service.AparelhoService;
 import br.edu.infnet.appdomotica.model.service.ComodoService;
 import br.edu.infnet.appdomotica.model.service.ResponsavelService;
@@ -26,26 +29,27 @@ public class ComodoController {
 	private AparelhoService aparelhoService;
 	
 	@GetMapping(value = "/comodo/lista")
-	public String telaLista(Model model) {
+	public String telaLista(Model model, @SessionAttribute("user") Morador user) {
 		
-		model.addAttribute("listagem", comodoService.obterLista());
+		model.addAttribute("listagem", comodoService.obterLista(user));
 		
 		return "comodo/lista";
 	}
 	
 	@GetMapping(value = "/comodo")
-	public String telaCadastro(Model model) {
+	public String telaCadastro(Model model, @SessionAttribute("user") Morador user) {
 		
-		model.addAttribute("aparelhos", aparelhoService.obterLista());
-		model.addAttribute("responsaveis", responsavelService.obterLista());
+		model.addAttribute("aparelhos", aparelhoService.obterLista(user));
+		model.addAttribute("responsaveis", responsavelService.obterLista(user));
 		
 		return "comodo/cadastro";
 	}
 
 	@PostMapping(value = "/comodo/incluir")
-	public String incluir() {
+	public String incluir(Comodo comodo, @SessionAttribute("user") Morador user) {
 
-		//comodoService.incluir(comodo);
+		comodo.setMorador(user);
+		comodoService.incluir(comodo);
 
 		return "redirect:/comodo/lista";
 	}

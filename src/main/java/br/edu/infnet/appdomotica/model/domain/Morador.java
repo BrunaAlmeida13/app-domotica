@@ -32,6 +32,10 @@ public class Morador implements IPrinter {
 	@JoinColumn(name = "idMorador")
 	private List<Aparelho> aparelhos;
 
+	@OneToMany
+	@JoinColumn(name = "idMorador")
+	private List<Comodo> comodos;
+
 	public Morador() {
 	}
 
@@ -87,6 +91,14 @@ public class Morador implements IPrinter {
 
 	public void setAparelhos(List<Aparelho> aparelhos) {
 		this.aparelhos = aparelhos;
+	}
+
+	public List<Comodo> getComodos() {
+		return comodos;
+	}
+
+	public void setComodos(List<Comodo> comodos) {
+		this.comodos = comodos;
 	}
 
 	@Override
