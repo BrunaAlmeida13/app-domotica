@@ -28,10 +28,14 @@ public class ComodoController {
 	@Autowired
 	private AparelhoService aparelhoService;
 	
+	private String mensagem;
+	
 	@GetMapping(value = "/comodo/lista")
 	public String telaLista(Model model, @SessionAttribute("user") Morador user) {
 		
 		model.addAttribute("listagem", comodoService.obterLista(user));
+		
+		model.addAttribute("mensagem", mensagem);
 		
 		return "comodo/lista";
 	}
@@ -50,13 +54,20 @@ public class ComodoController {
 
 		comodo.setMorador(user);
 		comodoService.incluir(comodo);
+		
+		mensagem = "Inclusão do cômodo " + comodo.getNome() + " foi realizada com sucesso!";
 
 		return "redirect:/comodo/lista";
 	}
 	
 	@GetMapping(value = "/comodo/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
-		comodoService.excluir(id);
+		try {
+			comodoService.excluir(id);
+			mensagem = "Exclusão do cômodo de id " + id + " foi realizada com sucesso!";
+		} catch (Exception e) {
+			mensagem = "Não foi possível realizar a exclusão do cômodo de id: " + id;
+		}
 		
 		return "redirect:/comodo/lista";
 	}

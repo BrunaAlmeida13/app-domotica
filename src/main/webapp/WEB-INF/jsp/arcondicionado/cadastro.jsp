@@ -18,15 +18,21 @@
 
 	<div class="container mt-3">
 
+		<c:if test="${not empty mensagem}">
+			<div class="alert alert-info">
+				<strong>Infomação: </strong> ${mensagem}
+			</div>
+		</c:if>
+
 		<h2>Cadastro do Ar Condicionado</h2>
 
 		<form action="/arcondicionado/incluir" method="post">
-			
+
 			<c:import url="/WEB-INF/jsp/aparelho/cadastro.jsp" />
-			
+
 			<div class="mb-3 mt-3">
-				<label>Temperatura °C</label> <input type="number" class="form-control"
-					name="temperatura">
+				<label>Temperatura °C</label> <input type="number"
+					class="form-control" name="temperatura">
 			</div>
 			<div class="mb-3">
 				<label>Ventilação</label> <select name="ventilacao">

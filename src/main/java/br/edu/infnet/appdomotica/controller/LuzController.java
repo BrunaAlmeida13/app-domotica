@@ -18,15 +18,19 @@ public class LuzController {
 	@Autowired
 	private LuzService luzService;	
 	
+	private String mensagem;
+	
 	@GetMapping(value = "/luz/lista")
 	public String telaLista(Model model, @SessionAttribute("user") Morador user) {
 
 		model.addAttribute("listagem", luzService.obterLista(user));
 
+		model.addAttribute("mensagem", mensagem);
+		
 		return "luz/lista";
 	}
 
-	@GetMapping(value = "/luz/incluir")
+	@GetMapping(value = "/luz")
 	public String telaCadastro() {
 		return "luz/cadastro";
 	}
@@ -36,6 +40,8 @@ public class LuzController {
 		luz.setMorador(user);
 		
 		luzService.incluir(luz);
+		
+		mensagem = "Inclusão da luz " + luz.getNome() + " foi realizada com sucesso!";
 
 		return "redirect:/luz/lista";
 	}
@@ -43,7 +49,12 @@ public class LuzController {
 	@GetMapping(value = "/luz/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 		
-		luzService.excluir(id);
+		try {
+			luzService.excluir(id);
+			mensagem = "Exclusão da luz de id " + id + " foi realizada com sucesso!";
+		} catch (Exception e) {
+			mensagem = "Não foi possível realizar a exclusão da luz de id: " + id;
+		}
 
 		return "redirect:/luz/lista";
 	}

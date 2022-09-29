@@ -14,9 +14,17 @@
 </head>
 
 <body>
+	<c:set var="ativarBotao" value="" />
+
 	<c:import url="/WEB-INF/jsp/menu.jsp" />
 
 	<div class="container mt-3">
+
+		<c:if test="${not empty mensagem}">
+			<div class="alert alert-info">
+				<strong>Infomação: </strong> ${mensagem}
+			</div>
+		</c:if>
 
 		<h2>Cadastro de cômodo</h2>
 
@@ -30,22 +38,40 @@
 					name="nome">
 			</div>
 			<div class="mb-3 mt-3">
-				<label>Aparelhos</label>
-				<c:forEach var="a" items="${aparelhos}">
-					<div>
-						<label><input type="checkbox" value=""> ${a.nome}</label><br>
-					</div>
-				</c:forEach>
+				<c:if test="${not empty aparelhos}">
+					<label>Aparelhos</label>
+					<c:forEach var="a" items="${aparelhos}">
+						<div>
+							<label><input type="checkbox" value="${a.id}"
+								name="listaAparelhos"> ${a.nome}</label><br>
+						</div>
+					</c:forEach>
+				</c:if>
+			</div>
+			<div>
+				<c:if test="${empty aparelhos}">
+					<label>Não há aparelhos cadastrados!</label>
+					<c:set var="ativarBotao" value="disabled" />
+				</c:if>
 			</div>
 			<div class="mb-3 mt-3">
-				<label>Responsável</label> <select>
-					<c:forEach var="r" items="${responsaveis}">
-						<option value="luz">${r.login}</option>
-					</c:forEach>
-				</select>
+				<c:if test="${not empty responsaveis}">
+					<label>Responsável</label>
+					<select name="responsavel">
+						<c:forEach var="r" items="${responsaveis}">
+							<option value="${r.id}">${r.login}</option>
+						</c:forEach>
+					</select>
+				</c:if>
+				<div>
+					<c:if test="${empty responsaveis}">
+						<label>Não há responsáveis cadastrados!</label>
+						<c:set var="ativarBotao" value="disabled" />
+					</c:if>
+				</div>
 			</div>
 			<br>
-			<button type="submit" class="btn btn-dark">Cadastrar</button>
+			<button ${ativarBotao} type="submit" class="btn btn-dark">Cadastrar</button>
 		</form>
 	</div>
 </body>

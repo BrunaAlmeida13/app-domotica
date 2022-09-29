@@ -18,15 +18,19 @@ public class FechaduraController {
 	@Autowired
 	private FechaduraService fechaduraService;
 
+	private String mensagem;
+	
 	@GetMapping(value = "/fechadura/lista")
 	public String telaLista(Model model, @SessionAttribute("user") Morador user) {
 
 		model.addAttribute("listagem", fechaduraService.obterLista(user));
 
+		model.addAttribute("mensagem", mensagem);
+		
 		return "fechadura/lista";
 	}
 
-	@GetMapping(value = "/fechadura/incluir")
+	@GetMapping(value = "/fechadura")
 	public String telaCadastro() {
 		return "fechadura/cadastro";
 	}
@@ -36,13 +40,21 @@ public class FechaduraController {
 		fechadura.setMorador(user);
 		
 		fechaduraService.incluir(fechadura);
+		
+		mensagem = "Inclusão da fechadura " + fechadura.getNome() + " foi realizada com sucesso!";
 
 		return "redirect:/fechadura/lista";
 	}
 
 	@GetMapping(value = "/fechadura/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
-		fechaduraService.excluir(id);
+		
+		try {
+			fechaduraService.excluir(id);
+			mensagem = "Exclusão da fechadura de id " + id + " foi realizada com sucesso!";
+		} catch (Exception e) {
+			mensagem = "Não foi possível realizar a exclusão da fechadura de id: " + id;
+		}
 
 		return "redirect:/fechadura/lista";
 	}

@@ -22,10 +22,14 @@ public class ResponsavelController {
 	@Autowired
 	private MoradorService moradorService;
 	
+	private String mensagem;
+	
 	@GetMapping(value = "/responsavel/lista")
 	public String telaLista(Model model, @SessionAttribute("user") Morador user) {
 		
 		model.addAttribute("listagem", responsavelService.obterLista(user));
+		
+		model.addAttribute("mensagem", mensagem);
 		
 		return "responsavel/lista";
 	}
@@ -41,13 +45,22 @@ public class ResponsavelController {
 		responsavel.setMorador(morador);
 		
 		responsavelService.incluir(responsavel);
+		
+		mensagem = "Inclusão do responsável " + responsavel.getLogin() + " foi realizada com sucesso!";
 
 		return "redirect:/responsavel/lista";
 	}
 	
 	@GetMapping(value = "/responsavel/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
-		responsavelService.excluir(id);
+		
+		try {
+			responsavelService.excluir(id);
+			
+			mensagem = "Exclusão do responsável de id " + id + " foi realizada com sucesso!";
+		} catch (Exception e) {
+			mensagem = "Não foi possível realizar a exclusão do responsável de id: " + id;
+		}
 		
 		return "redirect:/responsavel/lista";
 	}

@@ -18,6 +18,12 @@
 
 	<div class="container mt-3">
 
+		<c:if test="${not empty mensagem}">
+			<div class="alert alert-info">
+				<strong>Infomação: </strong> ${mensagem}
+			</div>
+		</c:if>
+
 		<h2>Cadastro de luz</h2>
 
 		<form action="/luz/incluir" method="post">

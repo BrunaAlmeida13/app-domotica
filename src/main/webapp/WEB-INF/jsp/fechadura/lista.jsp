@@ -59,7 +59,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<a class="nav-link"	href="/fechadura/incluir">Cadastrar uma fechadura</a>
+		<a class="nav-link"	href="/fechadura">Cadastrar uma fechadura</a>
 	</div>
 </body>
 

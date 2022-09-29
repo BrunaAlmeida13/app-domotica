@@ -22,6 +22,12 @@
 		</h2>
 		<h4>${projeto.descricao}</h4>
 		<br>
+		<div>
+		<h5>Aluna: Bruna Araújo Almeida<br>
+		Disciplina: Java Web e Injeção de Dependência[22E3_3]<br>
+		Professor: Elberth Moraes</h5>
+		</div>
+		<br>
 		<c:forEach var="c" items="${projeto.classes}">
 			<h3>Classe: ${c.nome}</h3>
 			<table class="table table-striped table-dark">
