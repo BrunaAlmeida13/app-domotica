@@ -65,10 +65,10 @@ public class Fechadura extends Aparelho {
 	}
 
 	public void setAlarme(boolean alarme) {
-		if (this.trancada == false)
-			this.alarme = false;
-		else
+		if (this.trancada == true)
 			this.alarme = alarme;
+		else
+			this.alarme = false;
 	}
 
 	@Override
