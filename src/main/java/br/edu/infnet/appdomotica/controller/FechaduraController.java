@@ -41,8 +41,8 @@ public class FechaduraController {
 		
 		fechaduraService.incluir(fechadura);
 		
-		mensagem = "Inclusão da fechadura " + fechadura.getNome() + " foi realizada com sucesso!";
-
+		this.mensagem = "Inclusão da fechadura " + fechadura.getNome() + " foi realizada com sucesso!";
+		
 		return "redirect:/fechadura/lista";
 	}
 
@@ -51,9 +51,9 @@ public class FechaduraController {
 		
 		try {
 			fechaduraService.excluir(id);
-			mensagem = "Exclusão da fechadura de id " + id + " foi realizada com sucesso!";
+			this.mensagem = "Exclusão da fechadura de id " + id + " foi realizada com sucesso!";
 		} catch (Exception e) {
-			mensagem = "Não foi possível realizar a exclusão da fechadura de id: " + id;
+			this.mensagem = "Não foi possível realizar a exclusão da fechadura de id: " + id;
 		}
 
 		return "redirect:/fechadura/lista";

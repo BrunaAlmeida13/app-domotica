@@ -17,35 +17,28 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp" />
 
 	<div class="container mt-3">
+		<h2>Cadastro do responsável</h2>
 
-		<c:if test="${not empty mensagem}">
-			<div class="alert alert-info">
-				<strong>Infomação: </strong> ${mensagem}
+		<form action="/responsavel/incluir" method="post">
+			<div class="mb-3 mt-3">
+				<label>Login</label> <input type="text" class="form-control"
+					name="login">
 			</div>
-		</c:if>
-
-			<h2>Cadastro do responsável</h2>
-
-			<form action="/responsavel/incluir" method="post">
-				<div class="mb-3 mt-3">
-					<label>Login</label> <input type="text" class="form-control"
-						name="login">
-				</div>
-				<div class="mb-3 mt-3">
-					<label>senha</label> <input type="password" class="form-control"
-						name="senha">
-				</div>
-				<div class="mb-3 mt-3">
-					<label>CPF</label> <input type="text" class="form-control"
-						name="cpf" required>
-				</div>
-				<div class="mb-3 mt-3">
-					<label>Telefone</label> <input type="text" class="form-control"
-						name="telefone">
-				</div>
-				<br>
-				<button type="submit" class="btn btn-dark">Cadastrar</button>
-			</form>
+			<div class="mb-3 mt-3">
+				<label>senha</label> <input type="password" class="form-control"
+					name="senha">
+			</div>
+			<div class="mb-3 mt-3">
+				<label>CPF</label> <input type="text" class="form-control"
+					name="cpf" required>
+			</div>
+			<div class="mb-3 mt-3">
+				<label>Telefone</label> <input type="text" class="form-control"
+					name="telefone">
+			</div>
+			<br>
+			<button type="submit" class="btn btn-dark">Cadastrar</button>
+		</form>
 	</div>
 </body>
 

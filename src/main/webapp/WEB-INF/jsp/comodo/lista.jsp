@@ -17,6 +17,13 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp" />
 
 	<div class="container mt-3">
+
+		<c:if test="${not empty mensagem}">
+			<div class="alert alert-info">
+				<strong>Infomação: </strong> ${mensagem}
+			</div>
+		</c:if>
+
 		<br>
 		<h3>Classe: Comodo</h3>
 		<table class="table table-striped table-dark">
@@ -43,7 +50,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<a class="nav-link"	href="/comodo">Cadastrar um cômodo</a>
+		<a class="nav-link" href="/comodo">Cadastrar um cômodo</a>
 	</div>
 </body>
 

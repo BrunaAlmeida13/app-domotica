@@ -18,6 +18,13 @@
 
 	<br>
 	<div class="container mt-3">
+		
+		<c:if test="${not empty mensagem}">
+			<div class="alert alert-info" role="alert">
+				<strong>Infomação: </strong> ${mensagem}
+			</div>
+		</c:if>
+	
 		<h3>Classe: Fechadura estende Aparelho</h3>
 		<table class="table table-striped table-dark">
 			<thead class="thead-dark">

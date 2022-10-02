@@ -15,9 +15,15 @@
 
 <body>
 	<c:import url="/WEB-INF/jsp/menu.jsp" />
-
 	<br>
 	<div class="container mt-3">
+
+		<c:if test="${not empty mensagem}">
+			<div class="alert alert-info">
+				<strong>Infomação: </strong> ${mensagem}
+			</div>
+		</c:if>
+
 		<h3>Classe: ArCondicionado estende Aparelho</h3>
 		<table class="table table-striped table-dark">
 			<thead class="thead-dark">
@@ -43,23 +49,24 @@
 						<td>${a.timerFim}</td>
 						<td>${a.temperatura}</td>
 						<c:if test="${a.ventilacao == true}">
-						<td>Ligada</td>
+							<td>Ligada</td>
 						</c:if>
 						<c:if test="${a.ventilacao == false}">
-						<td>Desligada</td>
+							<td>Desligada</td>
 						</c:if>
 						<c:if test="${a.power == true}">
-						<td>Ligado</td>
+							<td>Ligado</td>
 						</c:if>
 						<c:if test="${a.power == false}">
-						<td>Desligado</td>
+							<td>Desligado</td>
 						</c:if>
 						<td><a href="/arcondicionado/${a.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<a class="nav-link"	href="/arcondicionado">Cadastrar um Ar Condicionado</a>
+		<a class="nav-link" href="/arcondicionado">Cadastrar um Ar
+			Condicionado</a>
 	</div>
 </body>
 </html>

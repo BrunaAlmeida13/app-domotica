@@ -17,6 +17,11 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp" />
 
 	<div class="container mt-3">
+		<c:if test="${not empty mensagem}">
+			<div class="alert alert-info">
+				<strong>Infomação: </strong> ${mensagem}
+			</div>
+		</c:if>
 		<br>
 		<h3>Classe: Luz estende Aparelho</h3>
 		<table class="table table-striped table-dark">
@@ -46,18 +51,17 @@
 						<td>${l.intensidade}</td>
 						<td>${l.volumeSom}</td>
 						<c:if test="${l.power == true}">
-						<td>Ligada</td>
+							<td>Ligada</td>
 						</c:if>
 						<c:if test="${l.power == false}">
-						<td>Desligada</td>
+							<td>Desligada</td>
 						</c:if>
 						<td><a href="/luz/${l.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<a class="nav-link"	href="/luz">Cadastrar uma luz</a>
-		<br>
+		<a class="nav-link" href="/luz">Cadastrar uma luz</a> <br>
 	</div>
 </body>
 

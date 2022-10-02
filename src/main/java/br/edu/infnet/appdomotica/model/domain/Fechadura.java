@@ -22,11 +22,11 @@ public class Fechadura extends Aparelho {
 	public long quantidadeHorasAgendada() throws TamanhoMaximoSenhaException {
 		int tamanhoMax = 4;
 		int tamanhoSenha = this.senha.length();
-		
-		if(tamanhoSenha > tamanhoMax) {
+
+		if (tamanhoSenha > tamanhoMax) {
 			throw new TamanhoMaximoSenhaException("Senha não pode ter mais que 5 caracteres.");
 		}
-		
+
 		long hours = 0;
 		if (getTimerFim() == null || getTimerInicio() == null) {
 			System.out.println("Função horario de funcionamento desligado");
@@ -35,15 +35,15 @@ public class Fechadura extends Aparelho {
 		}
 		return hours;
 	}
-	
+
 	@Override
 	public void status() {
-		if(this.trancada == true)
+		if (this.trancada == true)
 			super.setStatus("Trancada");
 		else
 			super.setStatus("Destrancada");
 	}
-	
+
 	public String getSenha() {
 		return senha;
 	}
@@ -65,10 +65,10 @@ public class Fechadura extends Aparelho {
 	}
 
 	public void setAlarme(boolean alarme) {
-		if(this.trancada == true)
-			this.alarme = alarme;
-		else
+		if (this.trancada == false)
 			this.alarme = false;
+		else
+			this.alarme = alarme;
 	}
 
 	@Override
